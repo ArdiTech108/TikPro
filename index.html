@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikPro - Likes & Views për TikTok | Rriste Profilin Tënd</title>
+    <meta name="description" content="TikPro - Platforma më e besueshme për të blerë likes dhe views për TikTok. Paketa falas dhe me çmime të lira.">
+    <meta property="og:title" content="TikPro - Likes & Views për TikTok">
+    <meta property="og:description" content="Rriste profilin tënd TikTok me likes dhe views të vërteta. Paketa falas në dispozicion!">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo" data-testid="link-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                </svg>
+                <span>Tik<span class="text-primary">Pro</span></span>
+            </a>
+            <nav class="nav-desktop" data-testid="nav-desktop">
+                <a href="index.html" class="nav-link active">Kryefaqja</a>
+                <a href="contact.html" class="nav-link">Kontakt</a>
+                <a href="privacy.html" class="nav-link">Privatësia</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" data-testid="button-theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+                <button class="menu-toggle" id="menuToggle" data-testid="button-mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <nav class="nav-mobile" id="mobileNav">
+            <a href="index.html" class="nav-link active">Kryefaqja</a>
+            <a href="contact.html" class="nav-link">Kontakt</a>
+            <a href="privacy.html" class="nav-link">Privatësia</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="hero-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                </svg>
+            </div>
+            <h1 class="hero-title">Tik<span class="text-primary">Pro</span></h1>
+            <p class="hero-subtitle">Rriste Profilin Tënd TikTok</p>
+            <p class="hero-description">Merr likes dhe views të vërteta për videot e tua TikTok. Shërbim i shpejtë, i sigurt dhe me çmime të lira.</p>
+            <div class="hero-buttons">
+                <a href="#free-packages" class="btn btn-primary btn-lg" data-testid="button-view-packages">Shiko Paketat</a>
+                <a href="contact.html" class="btn btn-outline btn-lg" data-testid="link-contact-hero">Kontakto</a>
+            </div>
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <svg class="trust-icon green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <span>10,000+ Klientë</span>
+                </div>
+                <div class="trust-item">
+                    <svg class="trust-icon primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span>100% i Sigurt</span>
+                </div>
+                <div class="trust-item">
+                    <svg class="trust-icon yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
+                    <span>Dorëzim i Shpejtë</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Packages Section -->
+    <section class="section section-free" id="free-packages">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge badge-primary" data-testid="badge-free">FALAS</span>
+                <h2 class="section-title">Paketa Falas</h2>
+                <p class="section-subtitle">Fillo pa paguar asgjë! Merr likes dhe views falas për të provuar shërbimin tonë.</p>
+            </div>
+            <div class="free-packages-grid">
+                <!-- Free Likes -->
+                <div class="card card-free card-likes" data-testid="card-free-likes">
+                    <div class="card-badge">Kohë e Kufizuar</div>
+                    <div class="card-header">
+                        <div class="card-icon likes">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Likes Falas</h3>
+                    </div>
+                    <div class="card-amount">500 <span>likes</span></div>
+                    <ul class="card-features">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Likes të vërteta nga përdorues realë</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Dorëzim brenda 24 orëve</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Pa fjalëkalim të nevojshëm</li>
+                    </ul>
+                    <button class="btn btn-primary btn-full" onclick="openFreeModal('likes', 500)" data-testid="button-get-free-likes">Get</button>
+                </div>
+
+                <!-- Free Views -->
+                <div class="card card-free card-views" data-testid="card-free-views">
+                    <div class="card-badge card-badge-secondary">Kohë e Kufizuar</div>
+                    <div class="card-header">
+                        <div class="card-icon views">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Views Falas</h3>
+                    </div>
+                    <div class="card-amount">1,000 <span>views</span></div>
+                    <ul class="card-features">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Views të vërteta nga përdorues realë</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Dorëzim brenda 24 orëve</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Pa fjalëkalim të nevojshëm</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-full" onclick="openFreeModal('views', 1000)" data-testid="button-get-free-views">Get</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Likes Packages Section -->
+    <section class="section" id="likes-packages">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon likes">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </div>
+                <h2 class="section-title">Paketa Likes</h2>
+                <p class="section-subtitle">Zgjidh paketën që i përshtatet nevojave të tua. Çmime të lira dhe dorëzim i garantuar.</p>
+            </div>
+            <div class="packages-grid" id="likesGrid">
+                <!-- Likes packages will be inserted by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Views Packages Section -->
+    <section class="section section-alt" id="views-packages">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon views">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </div>
+                <h2 class="section-title">Paketa Views</h2>
+                <p class="section-subtitle">Rrite numrin e shikimeve të videove të tua me paketat tona të lira.</p>
+            </div>
+            <div class="packages-grid" id="viewsGrid">
+                <!-- Views packages will be inserted by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pse TikPro?</h2>
+                <p class="section-subtitle">Platforma jonë ofron shërbimin më të mirë për rritjen e profilit tënd TikTok.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-testid="feature-fast">
+                    <div class="feature-icon primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                    </div>
+                    <h3>Dorëzim i Shpejtë</h3>
+                    <p>Porosia juaj fillon të përpunohet menjëherë dhe përfundon brenda 24 orëve.</p>
+                </div>
+                <div class="feature-card" data-testid="feature-secure">
+                    <div class="feature-icon green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>100% i Sigurt</h3>
+                    <p>Nuk kërkojmë fjalëkalimin tuaj. Llogaria juaj mbetet plotësisht e sigurt.</p>
+                </div>
+                <div class="feature-card" data-testid="feature-support">
+                    <div class="feature-icon blue">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3>Mbështetje 24/7</h3>
+                    <p>Ekipi ynë është gjithmonë gati për t'ju ndihmuar me çdo pyetje.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <svg class="logo-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                        <span>Tik<span class="text-primary">Pro</span></span>
+                    </a>
+                    <p>Platforma më e besueshme për rritjen e profilit tënd TikTok me likes dhe views të vërteta.</p>
+                    <div class="footer-stat">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="text-primary">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        <span>10,000+ klientë të kënaqur</span>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Linqe të Shpejta</h4>
+                    <ul>
+                        <li><a href="index.html" data-testid="link-footer-home">Kryefaqja</a></li>
+                        <li><a href="contact.html" data-testid="link-footer-contact">Kontakt</a></li>
+                        <li><a href="privacy.html" data-testid="link-footer-privacy">Privatësia</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Kontakt</h4>
+                    <a href="mailto:ajashanica187@gmail.com" data-testid="link-footer-email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        ajashanica187@gmail.com
+                    </a>
+                    <p>Na kontaktoni 24/7 për çdo pyetje apo ndihmë.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TikPro. Të gjitha të drejtat e rezervuara.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html" data-testid="link-footer-privacy-bottom">Politika e Privatësisë</a>
+                    <span>•</span>
+                    <a href="contact.html" data-testid="link-footer-contact-bottom">Kontakto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Free Modal -->
+    <div class="modal" id="freeModal">
+        <div class="modal-overlay" onclick="closeFreeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeFreeModal()" data-testid="button-close-free-modal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="modal-header">
+                <div class="modal-icon" id="freeModalIcon"></div>
+                <h3 id="freeModalTitle">Merr Likes Falas</h3>
+                <p id="freeModalSubtitle">Plotëso të dhënat për të marrë paketën falas.</p>
+            </div>
+            <form id="freeForm" onsubmit="submitFreeForm(event)">
+                <input type="hidden" id="freePackageType" value="">
+                <input type="hidden" id="freePackageAmount" value="">
+                <div class="form-group">
+                    <label for="freeVideoLink">Linku i Videos</label>
+                    <div class="input-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                        </svg>
+                        <input type="url" id="freeVideoLink" placeholder="https://tiktok.com/@user/video/..." required data-testid="input-video-link">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="freeEmail">Email</label>
+                    <div class="input-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <input type="email" id="freeEmail" placeholder="email@shembull.com" required data-testid="input-email">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full btn-lg" data-testid="button-submit-free">Dërgo Porosinë</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Paid Modal -->
+    <div class="modal" id="paidModal">
+        <div class="modal-overlay" onclick="closePaidModal()"></div>
+        <div class="modal-content modal-content-lg">
+            <button class="modal-close" onclick="closePaidModal()" data-testid="button-close-paid-modal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="modal-header">
+                <div class="modal-icon" id="paidModalIcon"></div>
+                <h3 id="paidModalTitle">Bli Likes</h3>
+                <p id="paidModalSubtitle">Çmimi: €0.00</p>
+            </div>
+            <form id="paidForm" onsubmit="submitPaidForm(event)">
+                <input type="hidden" id="paidPackageType" value="">
+                <input type="hidden" id="paidPackageAmount" value="">
+                <input type="hidden" id="paidPackagePrice" value="">
+                <div class="form-group">
+                    <label for="paidVideoLink">Linku i Videos</label>
+                    <div class="input-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                        </svg>
+                        <input type="url" id="paidVideoLink" placeholder="https://tiktok.com/@user/video/..." required data-testid="input-video-link-paid">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="paidEmail">Email</label>
+                    <div class="input-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <input type="email" id="paidEmail" placeholder="email@shembull.com" required data-testid="input-email-paid">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="paidCardNumber">Numri i Kartelës</label>
+                    <div class="input-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                        <input type="text" id="paidCardNumber" placeholder="1234 5678 9012 3456" required data-testid="input-card-number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="paidAddress">Adresa</label>
+                    <div class="input-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <input type="text" id="paidAddress" placeholder="Adresa juaj e plotë" required data-testid="input-address">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Mënyra e Pagesës</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="paymentMethod" value="paypal" checked data-testid="radio-paypal">
+                            <span class="radio-custom"></span>
+                            PayPal
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="paymentMethod" value="card" data-testid="radio-card">
+                            <span class="radio-custom"></span>
+                            Kartelë
+                        </label>
+                    </div>
+                </div>
+                <div class="form-total">
+                    <span>Totali:</span>
+                    <span class="total-price" id="totalPrice">€0.00</span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full btn-lg" data-testid="button-submit-paid">Paguaj Tani</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-overlay" onclick="closeSuccessModal()"></div>
+        <div class="modal-content modal-content-sm">
+            <div class="success-content">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                </div>
+                <h3>Sukses!</h3>
+                <p id="successMessage">Porosia juaj u dërgua me sukses!</p>
+                <button class="btn btn-primary" onclick="closeSuccessModal()" data-testid="button-close-success">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
