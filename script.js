@@ -1,6 +1,4 @@
-// TikPro - Main JavaScript
 
-// Theme Toggle
 function initTheme() {
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme');
@@ -16,10 +14,7 @@ function initTheme() {
             const isDark = document.documentElement.classList.contains('dark');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
-    }
-}
-
-// Packages Data
+    
 const likesPackages = [
     { id: 'likes-1', amount: 100, price: 0.99, popular: false },
     { id: 'likes-2', amount: 250, price: 1.99, popular: false },
@@ -46,7 +41,7 @@ const viewsPackages = [
     { id: 'views-10', amount: 500000, price: 169.99, popular: false }
 ];
 
-// Format number helper
+
 function formatNumber(num) {
     if (num >= 1000000) {
         return (num / 1000000).toFixed(1) + 'M';
@@ -57,7 +52,7 @@ function formatNumber(num) {
     return num.toString();
 }
 
-// Render packages
+
 function renderPackages() {
     const likesGrid = document.getElementById('likesGrid');
     const viewsGrid = document.getElementById('viewsGrid');
@@ -95,7 +90,7 @@ function renderPackages() {
     }
 }
 
-// Mobile menu toggle
+
 function initMobileMenu() {
     const menuToggle = document.getElementById('menuToggle');
     const mobileNav = document.getElementById('mobileNav');
@@ -108,7 +103,7 @@ function initMobileMenu() {
     }
 }
 
-// Free Modal Functions
+
 function openFreeModal(type, amount) {
     const modal = document.getElementById('freeModal');
     const modalIcon = document.getElementById('freeModalIcon');
@@ -142,15 +137,13 @@ function submitFreeForm(event) {
     const type = document.getElementById('freePackageType').value;
     const amount = document.getElementById('freePackageAmount').value;
     const videoLink = document.getElementById('freeVideoLink').value;
-    const email = document.getElementById('freeEmail').value;
-    
-    // Validate TikTok URL
+    const email = 
     if (!videoLink.includes('tiktok.com')) {
         alert('Ju lutem vendosni një link të vlefshëm TikTok!');
         return;
     }
     
-    // Store order data (in real app, send to server)
+   
     const orderData = {
         type: type,
         amount: parseInt(amount),
@@ -159,14 +152,12 @@ function submitFreeForm(event) {
         isFree: true,
         timestamp: new Date().toISOString()
     };
-    
+  
     console.log('Free Order:', orderData);
     
     closeFreeModal();
     showSuccessModal(`Porosia juaj për ${formatNumber(parseInt(amount))} ${type} falas u dërgua me sukses! Do t'ju kontaktojmë në ${email}.`);
 }
-
-// Paid Modal Functions
 function openPaidModal(type, amount, price) {
     const modal = document.getElementById('paidModal');
     const modalIcon = document.getElementById('paidModalIcon');
@@ -211,19 +202,19 @@ function submitPaidForm(event) {
     const address = document.getElementById('paidAddress').value;
     const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
     
-    // Validate TikTok URL
+    
     if (!videoLink.includes('tiktok.com')) {
         alert('Ju lutem vendosni një link të vlefshëm TikTok!');
         return;
     }
     
-    // Validate card number (basic check)
+   
     if (cardNumber.replace(/\s/g, '').length < 16) {
         alert('Ju lutem vendosni një numër kartele të vlefshëm!');
         return;
     }
     
-    // Store order data (in real app, send to server)
+    
     const orderData = {
         type: type,
         amount: parseInt(amount),
@@ -243,7 +234,7 @@ function submitPaidForm(event) {
     showSuccessModal(`Porosia juaj për ${formatNumber(parseInt(amount))} ${type} (€${parseFloat(price).toFixed(2)}) u dërgua me sukses! Do t'ju kontaktojmë në ${email}.`);
 }
 
-// Success Modal
+
 function showSuccessModal(message) {
     const modal = document.getElementById('successModal');
     document.getElementById('successMessage').textContent = message;
@@ -257,7 +248,6 @@ function closeSuccessModal() {
     document.body.style.overflow = '';
 }
 
-// Contact Form (for contact page)
 function submitContactForm(event) {
     event.preventDefault();
     
@@ -274,7 +264,7 @@ function submitContactForm(event) {
     
     console.log('Contact Form:', contactData);
     
-    // Show success state
+    
     const form = document.getElementById('contactForm');
     const successDiv = document.getElementById('contactSuccess');
     
@@ -295,7 +285,6 @@ function resetContactForm() {
     }
 }
 
-// Close modals on Escape key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeFreeModal();
@@ -304,7 +293,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Initialize on page load
+
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     renderPackages();
