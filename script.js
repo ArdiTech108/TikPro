@@ -346,3 +346,33 @@ async function askTikBot(msg) {
   const chatbox = document.getElementById("chatbox");
   chatbox.innerHTML += `<p><b>Bot:</b> ${botReply}</p>`;
 }
+
+
+const chatButton = document.getElementById("chat-button");
+const chatBox = document.getElementById("chat-box");
+const chatMessages = document.getElementById("chat-messages");
+const chatInput = document.getElementById("chat-input");
+const chatSend = document.getElementById("chat-send");
+
+// Toggle chatbox
+chatButton.addEventListener("click", () => {
+  chatBox.style.display = chatBox.style.display === "none" ? "flex" : "none";
+});
+
+// Send message
+chatSend.addEventListener("click", async () => {
+  const message = chatInput.value;
+  if (!message) return;
+
+  // Shfaq mesazhin e përdoruesit
+  chatMessages.innerHTML += `<p><b>Ti:</b> ${message}</p>`;
+  chatInput.value = "";
+
+  // Thirr API-n
+  const res = await fetch(`/api/tikbot?message=${encodeURIComponent(message)}`);
+  const data = await res.json();
+
+  const botReply = data.output[0].content[0].text || "Nuk mora përgjigje";
+  chatMessages.innerHTML += `<p><b>Bot:</b> ${botReply}</p>`;
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+});
