@@ -333,6 +333,11 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPackages();
   initMobileMenu();
 });
+
+
+
+
+
 const chatButton = document.getElementById("chat-button");
 const chatBox = document.getElementById("chat-box");
 const chatMessages = document.getElementById("chat-messages");
@@ -342,10 +347,11 @@ const chatSend = document.getElementById("chat-send");
 // Toggle chatbox
 chatButton.addEventListener("click", () => {
   chatBox.style.display = chatBox.style.display === "none" ? "flex" : "none";
+  if(chatBox.style.display === "flex") chatInput.focus();
 });
 
-// Send message
-chatSend.addEventListener("click", async () => {
+// Funksioni për të dërguar mesazh
+async function sendMessage() {
   const message = chatInput.value.trim();
   if (!message) return;
 
@@ -353,7 +359,7 @@ chatSend.addEventListener("click", async () => {
   chatMessages.innerHTML += `<p><b>Ti:</b> ${message}</p>`;
   chatInput.value = "";
 
-  // Thirr API-n
+  // Thirr API
   try {
     const res = await fetch(`/api/tikbot?message=${encodeURIComponent(message)}`);
     const data = await res.json();
@@ -365,4 +371,13 @@ chatSend.addEventListener("click", async () => {
     chatMessages.innerHTML += `<p><b>Bot:</b> Ka ndodhur një gabim</p>`;
     console.error(err);
   }
+  chatInput.focus();
+}
+
+// Dërgo kur klikojmë butonin
+chatSend.addEventListener("click", sendMessage);
+
+// Dërgo kur shtypim Enter
+chatInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendMessage();
 });
