@@ -333,21 +333,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPackages();
   initMobileMenu();
 });
-//ai
-async function askTikBot(msg) {
-  const res = await fetch(`/api/tikbot?message=${encodeURIComponent(msg)}`);
-  const data = await res.json();
-
-  // Përgjigja e bot-it
-  const botReply = data.output[0].content[0].text;
-  console.log("Bot:", botReply);
-
-  // Mund ta shfaqësh në chatbox
-  const chatbox = document.getElementById("chatbox");
-  chatbox.innerHTML += `<p><b>Bot:</b> ${botReply}</p>`;
-}
-
-
 const chatButton = document.getElementById("chat-button");
 const chatBox = document.getElementById("chat-box");
 const chatMessages = document.getElementById("chat-messages");
@@ -361,7 +346,7 @@ chatButton.addEventListener("click", () => {
 
 // Send message
 chatSend.addEventListener("click", async () => {
-  const message = chatInput.value;
+  const message = chatInput.value.trim();
   if (!message) return;
 
   // Shfaq mesazhin e përdoruesit
@@ -369,10 +354,15 @@ chatSend.addEventListener("click", async () => {
   chatInput.value = "";
 
   // Thirr API-n
-  const res = await fetch(`/api/tikbot?message=${encodeURIComponent(message)}`);
-  const data = await res.json();
+  try {
+    const res = await fetch(`/api/tikbot?message=${encodeURIComponent(message)}`);
+    const data = await res.json();
 
-  const botReply = data.output[0].content[0].text || "Nuk mora përgjigje";
-  chatMessages.innerHTML += `<p><b>Bot:</b> ${botReply}</p>`;
-  chatMessages.scrollTop = chatMessages.scrollHeight;
+    const botReply = data.output?.[0]?.content?.[0]?.text || "Nuk mora përgjigje";
+    chatMessages.innerHTML += `<p><b>Bot:</b> ${botReply}</p>`;
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  } catch (err) {
+    chatMessages.innerHTML += `<p><b>Bot:</b> Ka ndodhur një gabim</p>`;
+    console.error(err);
+  }
 });
