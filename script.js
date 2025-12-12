@@ -363,8 +363,13 @@ async function sendMessage() {
   try {
     const res = await fetch(`/api/tikbot?message=${encodeURIComponent(message)}`);
     const data = await res.json();
+// Mesazhi i përdoruesit
+chatMessages.innerHTML += `<p class="user">${message}</p>`;
 
-    const botReply = data.output?.[0]?.content?.[0]?.text || "Nuk mora përgjigje";
+// Mesazhi i bot-it
+chatMessages.innerHTML += `<p class="bot">${botReply}</p>`;
+
+    const botReply = data.output?.[0]?.content?.[0]?.text || "API nuk ka funksionuar.";
     chatMessages.innerHTML += `<p><b>Bot:</b> ${botReply}</p>`;
     chatMessages.scrollTop = chatMessages.scrollHeight;
   } catch (err) {
