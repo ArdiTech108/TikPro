@@ -1377,86 +1377,94 @@ body {
 
 
 
-/* Floating button */
-#chat-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #1a73e8;
-  color: white;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  box-shadow: 0 4px 10px #0003;
-  z-index: 1000;
-  transition: transform 0.2s;
-}
-
-#chat-button:hover {
-  transform: scale(1.1);
-}
-
-/* Chatbox */
+/* Chatbox brenda ekzistues */
 #chat-box {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 320px;
-  height: 400px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  display: none;
+  display: flex;
   flex-direction: column;
+  height: 400px;
+  width: 320px;
+  background: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
   overflow: hidden;
-  font-family: sans-serif;
-  z-index: 999;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Header */
-#chat-header {
+/* Header brenda (opsionale, nëse ka) */
+#chat-box .chat-header {
   background: #1a73e8;
   color: white;
-  padding: 10px;
   font-weight: bold;
   text-align: center;
-  font-size: 18px;
+  padding: 10px;
+  font-size: 16px;
 }
 
-/* Messages */
+/* Zona e mesazheve */
 #chat-messages {
   flex: 1;
   padding: 10px;
   overflow-y: auto;
-  background: #f9f9f9;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ddd;
 }
 
-/* Input container */
+/* Mesazhet e përdoruesit */
+#chat-messages p.user {
+  background: #1a73e8;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 18px 18px 0 18px;
+  max-width: 80%;
+  margin: 5px 0;
+  align-self: flex-end;
+  word-wrap: break-word;
+}
+
+/* Mesazhet e bot-it */
+#chat-messages p.bot {
+  background: #e5e5e5;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 18px 18px 18px 0;
+  max-width: 80%;
+  margin: 5px 0;
+  align-self: flex-start;
+  word-wrap: break-word;
+}
+
+/* Zona e inputit */
 #chat-input-container {
   display: flex;
   border-top: 1px solid #ddd;
+  padding: 5px;
+  background: #fff;
 }
 
+/* Input */
 #chat-input {
   flex: 1;
   padding: 10px;
-  border: none;
+  border: 1px solid #ccc;
+  border-radius: 20px;
   outline: none;
   font-size: 14px;
 }
 
+/* Butoni dërgo */
 #chat-send {
   background: #1a73e8;
   color: white;
   border: none;
-  padding: 0 15px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
   cursor: pointer;
   font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: background 0.2s;
 }
 
@@ -1464,12 +1472,3 @@ body {
   background: #1669c1;
 }
 
-/* Messages styling */
-#chat-messages p {
-  margin: 5px 0;
-}
-
-#chat-messages p b {
-  display: inline-block;
-  min-width: 35px;
-}
