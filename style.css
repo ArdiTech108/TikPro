@@ -1369,3 +1369,59 @@ body {
     font-size: 2rem;
   }
 }
+
+
+
+
+
+
+
+
+/* Floating button poshte djathtas */
+#chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1a73e8;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Chatbox hidden by default */
+#chat-box {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0003;
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  z-index: 999;
+}
+
+#chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+#chat-input {
+  width: calc(100% - 60px);
+}
+
+#chat-send {
+  width: 50px;
+}
+
