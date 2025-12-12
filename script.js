@@ -333,3 +333,16 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPackages();
   initMobileMenu();
 });
+//ai
+async function askTikBot(msg) {
+  const res = await fetch(`/api/tikbot?message=${encodeURIComponent(msg)}`);
+  const data = await res.json();
+
+  // Përgjigja e bot-it
+  const botReply = data.output[0].content[0].text;
+  console.log("Bot:", botReply);
+
+  // Mund ta shfaqësh në chatbox
+  const chatbox = document.getElementById("chatbox");
+  chatbox.innerHTML += `<p><b>Bot:</b> ${botReply}</p>`;
+}
