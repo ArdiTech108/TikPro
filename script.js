@@ -334,36 +334,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
 });
 
-const salesPopup = document.getElementById('salesPopup');
-const salesContent = document.getElementById('salesContent');
 
-const data = [
-    { name: "Ardit G.", city: "Prishtinë", service: "1000 Views" },
-    { name: "Besnik S.", city: "Tiranë", service: "500 Likes" },
-    { name: "Erisa M.", city: "Prizren", service: "2000 Views" },
-    { name: "Luan K.", city: "Shkup", service: "250 Likes" },
-    { name: "Fation B.", city: "Ferizaj", service: "100 Likes" }
-];
-
-function showNotification() {
-    // Zgjidh një të dhënë random
-    const random = data[Math.floor(Math.random() * data.length)];
-    
-    // Ndrysho tekstin
-    salesContent.innerHTML = `🔥 <b>${random.name}</b> nga ${random.city} sapo bleu <b>${random.service}</b>`;
-    
-    // Shfaq njoftimin
-    salesPopup.classList.add('show');
-    
-    // Fshihe pas 6 sekondave
-    setTimeout(() => {
-        salesPopup.classList.remove('show');
-    }, 6000);
-}
-
-// Shfaq njoftimin e parë pas 5 sekondave kur hapet faqja
-setTimeout(showNotification, 5000);
-
-// Rrit intervalin çdo 20 sekonda
-setInterval(showNotification, 20000);
 
