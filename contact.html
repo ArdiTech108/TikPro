@@ -306,6 +306,99 @@
         </div>
       </div>
     </footer>
+    <style>
+    /* Stili që rri fshehur dhe lëviz lart anash */
+    #salesPopup {
+        position: fixed;
+        top: 20px; /* E vendos lart */
+        right: 20px; /* E vendos anash djathtas */
+        background: #ffffff;
+        color: #333;
+        padding: 15px 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 10000;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border-right: 5px solid #00f2ea; /* Ngjyra TikTok */
+        
+        /* Pozicioni fillestar (jashtë ekranit djathtas) */
+        transform: translateX(120%);
+        transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    #salesPopup.active {
+        transform: translateX(0); /* Shfaqet në ekran */
+    }
+
+    .sales-icon {
+        background: #ff0050;
+        color: white;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+    }
+
+    .sales-text {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .sales-text b {
+        color: #000;
+    }
+</style>
+
+<div id="salesPopup">
+    <div class="sales-icon">🚀</div>
+    <div class="sales-text" id="salesMsg">
+        </div>
+</div>
+
+<script>
+    (function() {
+        const popup = document.getElementById('salesPopup');
+        const msg = document.getElementById('salesMsg');
+
+        const orders = [
+            { emri: "Altini", qyteti: "Prishtinë", produkti: "500 Views" },
+            { emri: "Klea", qyteti: "Tiranë", produkti: "200 Likes" },
+            { emri: "Dritoni", qyteti: "Prizren", produkti: "1000 Views" },
+            { emri: "Sara", qyteti: "Shkup", produkti: "50 Shares" },
+            { emri: "Enisi", qyteti: "Gjakovë", produkti: "300 Likes" }
+          { emri: "Leart", qyteti: "Lipjan", produkti: "10000 Likes" }
+      { emri: "Orges", qyteti: "Peje", produkti: "5000 views" }
+        ];
+
+        function showOrder() {
+            // 1. Zgjidh një porosi random
+            const o = orders[Math.floor(Math.random() * orders.length)];
+            
+            // 2. Vendos tekstin
+            msg.innerHTML = `<b>${o.emri}</b> nga ${o.qyteti}<br>sapo bleu <b>${o.produkti}</b>!`;
+            
+            // 3. Shfaq popup-in
+            popup.classList.add('active');
+            
+            // 4. Fshihe pas 5 sekondave
+            setTimeout(() => {
+                popup.classList.remove('active');
+            }, 5000);
+        }
+
+        // Shfaqe për herë të parë pas 3 sekondave
+        setTimeout(showOrder, 3000);
+
+        // Përsërite çdo 15 sekonda
+        setInterval(showOrder, 15000);
+    })();
+</script>
 
   
 <!-- Start of OpenWidget (www.openwidget.com) code -->
