@@ -214,12 +214,14 @@ body {
   font-weight: 800;
   color: var(--foreground);
   text-decoration: none;
+  filter: drop-shadow(0 0 15px rgba(255, 0, 80, 0.5));
 }
 
 .logo-icon {
   width: 2rem;
   height: 2rem;
   color: var(--primary);
+  filter: drop-shadow(0 0 15px rgba(255, 0, 80, 0.5));
 }
 
 .nav-desktop {
