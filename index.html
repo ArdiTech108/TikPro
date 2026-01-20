@@ -780,8 +780,8 @@
     /* Stili që rri fshehur dhe lëviz lart anash */
     #salesPopup {
         position: fixed;
-        top: 100px; /* E vendos lart */
-        right: 20px; /* E vendos anash djathtas */
+        top: 100px; 
+        right: 20px; /
         background: #ffffff;
         color: #333;
         padding: 15px 20px;
@@ -792,15 +792,15 @@
         gap: 10px;
         z-index: 10000;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        border-right: 5px solid #00f2ea; /* Ngjyra TikTok */
+        border-right: 5px solid #00f2ea; 
         
-        /* Pozicioni fillestar (jashtë ekranit djathtas) */
+       
         transform: translateX(120%);
         transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     #salesPopup.active {
-        transform: translateX(0); /* Shfaqet në ekran */
+        transform: translateX(0);
     }
 
     .sales-icon {
@@ -845,25 +845,23 @@
         ];
 
         function showOrder() {
-            // 1. Zgjidh një porosi random
+           
             const o = orders[Math.floor(Math.random() * orders.length)];
             
-            // 2. Vendos tekstin
+      
             msg.innerHTML = `<b>${o.emri}</b> nga ${o.qyteti}<br>sapo bleu <b>${o.produkti}</b>!`;
             
-            // 3. Shfaq popup-in
+    
             popup.classList.add('active');
             
-            // 4. Fshihe pas 5 sekondave
+          
             setTimeout(() => {
                 popup.classList.remove('active');
             }, 5000);
         }
 
-        // Shfaqe për herë të parë pas 3 sekondave
         setTimeout(showOrder, 3000);
 
-        // Përsërite çdo 15 sekonda
         setInterval(showOrder, 15000);
     })();
 </script>
@@ -871,7 +869,7 @@
     <script>
     const counter = document.getElementById('counter');
     const target = +counter.getAttribute('data-target');
-    const speed = 200; // Sa më i vogël numri, aq më shpejt rritet
+    const speed = 200;
 
     const updateCount = () => {
         const count = +counter.innerText;
@@ -881,11 +879,11 @@
             counter.innerText = Math.ceil(count + inc);
             setTimeout(updateCount, 10);
         } else {
-            counter.innerText = target.toLocaleString(); // Shton presjen (p.sh. 10,000)
+            counter.innerText = target.toLocaleString(); 
         }
     };
 
-    // Fillo numërimin kur ngarkohet faqja
+   
     window.onload = updateCount;
 </script>
     
@@ -893,14 +891,14 @@
     window.addEventListener('load', () => {
         const bar = document.getElementById('loading-bar');
         
-        // Së pari e dërgojmë te 30% menjëherë
+       
         bar.style.width = '30%';
         
-        // Pas një kohe të shkurtër te 100%
+       
         setTimeout(() => {
             bar.style.width = '100%';
             
-            // Pasi mbushet, e fshehim me një efekt "fade"
+            /
             setTimeout(() => {
                 bar.style.opacity = '0';
             }, 400);
