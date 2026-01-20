@@ -776,12 +776,12 @@
 
 
     
-    <style>
-    /* Stili që rri fshehur dhe lëviz lart anash */
+<style>
+   
     #salesPopup {
         position: fixed;
         top: 100px; 
-        right: 20px; /
+        right: 20px; 
         background: #ffffff;
         color: #333;
         padding: 15px 20px;
@@ -793,14 +793,13 @@
         z-index: 10000;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         border-right: 5px solid #00f2ea; 
-        
        
         transform: translateX(120%);
         transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     #salesPopup.active {
-        transform: translateX(0);
+        transform: translateX(0); /
     }
 
     .sales-icon {
@@ -851,20 +850,23 @@
       
             msg.innerHTML = `<b>${o.emri}</b> nga ${o.qyteti}<br>sapo bleu <b>${o.produkti}</b>!`;
             
-    
+         
             popup.classList.add('active');
             
-          
+         
             setTimeout(() => {
                 popup.classList.remove('active');
             }, 5000);
         }
 
+       
         setTimeout(showOrder, 3000);
 
+   
         setInterval(showOrder, 15000);
     })();
 </script>
+  
 
     <script>
     const counter = document.getElementById('counter');
