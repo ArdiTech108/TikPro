@@ -889,6 +889,24 @@
     window.onload = updateCount;
 </script>
     
+    <script>
+    window.addEventListener('load', () => {
+        const bar = document.getElementById('loading-bar');
+        
+        // Së pari e dërgojmë te 30% menjëherë
+        bar.style.width = '30%';
+        
+        // Pas një kohe të shkurtër te 100%
+        setTimeout(() => {
+            bar.style.width = '100%';
+            
+            // Pasi mbushet, e fshehim me një efekt "fade"
+            setTimeout(() => {
+                bar.style.opacity = '0';
+            }, 400);
+        }, 300);
+    });
+</script>
 <!-- Start of OpenWidget (www.openwidget.com) code -->
 <script>
   window.__ow = window.__ow || {};
