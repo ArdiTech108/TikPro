@@ -508,13 +508,14 @@ body {
 }
 
 .card {
-  background: var(--card);
-  border-radius: var(--radius-xl);
-  padding: 1.5rem;
-  box-shadow: var(--shadow);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Lëvizje e butë */
 }
 
+.card:hover {
+  transform: translateY(-10px); /* Ngrihet pak lart */
+  border-color: rgba(238, 29, 82, 0.5); /* Ngjyra jote rozë */
+  box-shadow: 0 10px 30px rgba(238, 29, 82, 0.2); /* Shkëlqim i butë poshtë */
+}
 .dark .card {
   background: var(--card);
 }
