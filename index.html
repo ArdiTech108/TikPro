@@ -440,7 +440,7 @@
                   d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
                 />
               </svg>
-              <span>10,000+ klientë të kënaqur</span>
+              <span id="counter" data-target="10000" style="font-weight: bold;">0</span><span>+ Klientë</span>
             </div>
           </div>
           <div class="footer-links">
@@ -867,6 +867,26 @@
     })();
 </script>
 
+    <script>
+    const counter = document.getElementById('counter');
+    const target = +counter.getAttribute('data-target');
+    const speed = 200; // Sa më i vogël numri, aq më shpejt rritet
+
+    const updateCount = () => {
+        const count = +counter.innerText;
+        const inc = target / speed;
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + inc);
+            setTimeout(updateCount, 10);
+        } else {
+            counter.innerText = target.toLocaleString(); // Shton presjen (p.sh. 10,000)
+        }
+    };
+
+    // Fillo numërimin kur ngarkohet faqja
+    window.onload = updateCount;
+</script>
     
 <!-- Start of OpenWidget (www.openwidget.com) code -->
 <script>
