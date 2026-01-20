@@ -1452,6 +1452,18 @@ body {
 }
 
 
+#loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px; /* Vija shumë e hollë dhe elegante */
+    background: linear-gradient(to right, #ff0050, #00f2ea); /* Ngjyrat e TikTok */
+    box-shadow: 0 0 10px #ff0050;
+    z-index: 9999;
+    width: 0%;
+    transition: width 0.4s ease;
+}
+
 
 
 
