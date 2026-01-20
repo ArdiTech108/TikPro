@@ -306,12 +306,28 @@ body {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-      circle at 30% 20%,
-      rgba(238, 29, 82, 0.1),
-      transparent 50%
-    ),
-    radial-gradient(circle at 70% 80%, rgba(0, 212, 170, 0.1), transparent 50%);
+  /* Kemi shtuar 3 gradientë për më shumë thellësi */
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(238, 29, 82, 0.15), transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(0, 212, 170, 0.15), transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(238, 29, 82, 0.05), transparent 60%);
+  
+  /* Ky rresht aktivizon animacionin */
+  animation: backgroundPulse 10s ease-in-out infinite alternate;
+  filter: blur(40px); /* Kjo i bën ngjyrat të duken si re (soft) */
+}
+
+/* Animacioni që lëviz pikat e ngjyrave anash dhe lart-poshtë */
+@keyframes backgroundPulse {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.1) translate(2%, -2%);
+  }
+  100% {
+    transform: scale(1) translate(-2%, 2%);
+  }
 }
 
 .hero-content {
@@ -319,6 +335,7 @@ body {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
+  z-index: 1; /* Sigurohet që teksti të jetë mbi sfondin */
 }
 
 .hero-icon {
@@ -326,6 +343,13 @@ body {
   height: 4rem;
   margin: 0 auto 1.5rem;
   color: var(--primary);
+  /* Shtohet një shkëlqim i lehtë te ikona e TikTok-ut */
+  filter: drop-shadow(0 0 15px rgba(238, 29, 82, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.hero-icon:hover {
+  transform: scale(1.1);
 }
 
 .hero-icon svg {
