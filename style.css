@@ -320,6 +320,20 @@ body {
   100% { transform: scale(1) rotate(-3deg); }
 }
 
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, white 1px, transparent 1px);
+  background-size: 50px 50px; /* Sa larg janë pikat */
+  opacity: 0.05; /* Shumë e lehtë, mezi duket */
+  animation: starsMove 100s linear infinite;
+}
+
+@keyframes starsMove {
+  from { background-position: 0 0; }
+  to { background-position: 500px 1000px; }
+}
 .hero-content {
   position: relative;
   text-align: center;
