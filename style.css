@@ -22,27 +22,7 @@
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
 }
-/* Rregullon trashësinë e scrollbar-it */
-::-webkit-scrollbar {
-  width: 10px;
-}
 
-/* Sfondi i scrollbar-it (pjesa që rri fiks) */
-::-webkit-scrollbar-track {
-  background: #000000; 
-}
-
-/* Pjesa që lëviz (shufra) */
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #ff0050, #00f2ea);
-  border-radius: 10px;
-  border: 2px solid #000000; /* Krijon pak hapësirë anash që të duket më clean */
-}
-
-/* Kur e prek me mi, shkëlqen më shumë */
-::-webkit-scrollbar-thumb:hover {
-  background: #ff0050; 
-}
 
 .dark {
   --background: #0f0f0f;
