@@ -1265,134 +1265,86 @@ body {
 }
 
 /* Privacy Page */
+/* --- PRIVACY PAGE UPDATED --- */
 .privacy-content {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 1rem 4rem;
+  padding: 4rem 1rem;
+  position: relative;
+  z-index: 1;
 }
 
-.privacy-intro {
-  background: var(--card);
+.privacy-intro, .privacy-card {
+  /* Ky është efekti "Xham" mbi Aurora */
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  box-shadow: var(--shadow-xl);
   margin-bottom: 2rem;
+  transition: transform 0.3s ease;
 }
 
-.privacy-intro p {
-  color: var(--muted);
-  line-height: 1.7;
+.privacy-intro:hover, .privacy-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(238, 29, 82, 0.3);
 }
 
-.privacy-section {
-  margin-bottom: 2rem;
+.privacy-intro p, .privacy-card p, .privacy-card li {
+  color: #d1d1d1 !important; /* Ngjyrë më e qartë për lexim në errësirë */
+  line-height: 1.8;
 }
 
 .privacy-section-header {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .privacy-section-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  padding: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.7rem;
   border-radius: var(--radius);
-}
-
-.privacy-section-icon.blue {
-  background: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
-}
-
-.privacy-section-icon.green {
-  background: rgba(34, 197, 94, 0.1);
-  color: var(--success);
-}
-
-.privacy-section-icon.primary {
-  background: rgba(238, 29, 82, 0.1);
-  color: var(--primary);
-}
-
-.privacy-section-icon.purple {
-  background: rgba(139, 92, 246, 0.1);
-  color: #8b5cf6;
-}
-
-.privacy-section-icon.orange {
-  background: rgba(249, 115, 22, 0.1);
-  color: #f97316;
-}
-
-.privacy-section-icon.cyan {
-  background: rgba(0, 212, 170, 0.1);
-  color: var(--secondary);
-}
-
-.privacy-section-icon svg {
-  width: 100%;
-  height: 100%;
-}
-
-.privacy-section h2 {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.privacy-card {
-  background: var(--card);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.privacy-card p {
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 1rem;
-}
-
-.privacy-card p:last-child {
-  margin-bottom: 0;
-}
-
-.privacy-card ul {
-  color: var(--muted);
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.privacy-card li {
-  margin-bottom: 0.5rem;
-}
-
-.privacy-card a {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-.privacy-card a:hover {
-  text-decoration: underline;
+  /* Efekt shkëlqimi (Glow) për ikonat */
+  box-shadow: 0 0 15px currentColor; 
+  background: rgba(255, 255, 255, 0.05) !important;
 }
 
 .privacy-card strong {
-  color: var(--foreground);
+  color: var(--primary) !important; /* Fjalët kyçe bëhen Rozë TikTok */
 }
 
 .privacy-note {
-  background: var(--muted-bg);
+  background: rgba(238, 29, 82, 0.05) !important;
+  border: 1px dashed var(--primary);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   margin-top: 2rem;
 }
 
 .privacy-note p {
-  color: var(--muted);
-  font-size: 0.875rem;
-  line-height: 1.7;
+  color: #a1a1a1;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Rregullim për listat brenda Privacy Card */
+.privacy-card ul {
+  list-style: none;
+  padding-left: 0.5rem;
+}
+
+.privacy-card li::before {
+  content: "→";
+  color: var(--secondary);
+  margin-right: 10px;
+  font-weight: bold;
 }
 
 @media (max-width: 640px) {
@@ -1465,65 +1417,6 @@ body {
     transition: width 0.4s ease;
 }
 
-/* --- STILIMI I VEÇANTË PËR CONTACT DHE PRIVACY --- */
-
-/* 1. Sfondi i dedikuar për këto faqe */
-.page-header {
-    background: linear-gradient(to bottom, rgba(238, 29, 82, 0.05), transparent);
-    padding: 6rem 0 3rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* 2. Kartat Glassmorphism (Efekti Xham) */
-.contact-card, .privacy-card, .privacy-intro {
-    background: rgba(255, 255, 255, 0.03) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: var(--radius-xl) !important;
-    padding: 3rem !important;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
-}
-
-/* 3. Stilimi i fushave të shkrimit (Inputs) te Kontakti */
-.contact-card input, 
-.contact-card textarea {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    color: white !important;
-    border-radius: var(--radius) !important;
-    padding: 1rem 1rem 1rem 3rem !important; /* Hapësirë për ikona */
-    transition: all 0.3s ease !important;
-}
-
-.contact-card input:focus, 
-.contact-card textarea:focus {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border-color: var(--primary) !important;
-    box-shadow: 0 0 15px rgba(238, 29, 82, 0.3) !important;
-    outline: none;
-}
-
-/* 4. Stilimi i Privacy Sections */
-.privacy-section-icon {
-    background: linear-gradient(135deg, rgba(238, 29, 82, 0.2), rgba(0, 212, 170, 0.2)) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 15px rgba(238, 29, 82, 0.2);
-}
-
-.privacy-card strong {
-    color: var(--primary); /* I bën pikat kyçe të dallohen */
-}
-
-/* 5. Butoni i dërgimit në Kontakt */
-.contact-card .btn-primary {
-    width: 100%;
-    padding: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    margin-top: 1rem;
-}
 
 
 
