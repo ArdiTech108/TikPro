@@ -1184,70 +1184,163 @@ body {
   padding: 0 1rem 4rem;
 }
 
-/* ============================================================
-   SUPREME CONTACT CENTER - ULTRA EDITION
-   ============================================================ */
+.contact-card {
 
-.body3 .contact-card {
-    background: rgba(255, 255, 255, 0.01) !important;
-    backdrop-filter: blur(60px) saturate(210%) brightness(110%) !important;
-    -webkit-backdrop-filter: blur(60px) saturate(210%);
-    border-radius: 40px !important;
-    padding: 4rem !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-top: 2px solid rgba(255, 255, 255, 0.2) !important;
-    box-shadow: 
-        0 50px 100px rgba(0, 0, 0, 0.8),
-        inset 0 0 40px rgba(255, 255, 255, 0.02) !important;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: var(--card);
+
+  border-radius: var(--radius-xl);
+
+  padding: 2rem;
+
+  box-shadow: var(--shadow);
+
+  border: 1px solid var(--card-border);
+
 }
 
-/* Efekti i dritës që sillet rreth kartës (Border Glow) */
-.body3 .contact-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(125deg, transparent 40%, rgba(238, 29, 82, 0.1), transparent 60%);
-    animation: sweep 8s infinite linear;
-    pointer-events: none;
+
+
+.contact-card h2 {
+
+  font-size: 1.25rem;
+
+  font-weight: 600;
+
+  margin-bottom: 0.5rem;
+
 }
 
-@keyframes sweep {
-    0% { transform: translateX(-100%) translateY(-100%); }
-    100% { transform: translateX(100%) translateY(100%); }
+
+
+.contact-card > p {
+
+  color: var(--muted);
+
+  font-size: 0.875rem;
+
+  margin-bottom: 1.5rem;
+
 }
 
-.body3 .contact-card h2 {
-    font-size: 2.5rem !important;
-    font-weight: 900 !important;
-    letter-spacing: -1px;
-    background: linear-gradient(to right, #fff, #888);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
+
+
+.contact-card .form-group {
+
+  margin-bottom: 1.25rem;
+
 }
 
-/* INPUTET: ULTRA TECH STYLE */
-.body3 .contact-card input, 
-.body3 .contact-card textarea {
-    background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 20px !important;
-    padding: 1.2rem 1.2rem 1.2rem 3.5rem !important;
-    color: #fff !important;
-    font-size: 1.1rem !important;
-    transition: all
 
 
-.privacy-note {
-    background: rgba(0, 212, 170, 0.05) !important;
-    border: 1px dashed rgba(0, 212, 170, 0.3) !important;
-    border-radius: 20px;
-    padding: 25px;
-    text-align: center;
+.contact-card textarea {
+
+  width: 100%;
+
+  padding: 0.75rem 0.75rem 0.75rem 2.75rem;
+
+  font-size: 1rem;
+
+  border: 1px solid var(--card-border);
+
+  border-radius: var(--radius);
+
+  resize: none;
+
+  min-height: 150px;
+
+  font-family: inherit;
+
+  transition: all 0.2s ease;
+
+  background: var(--background);
+
+  color: var(--foreground);
+
 }
+
+
+
+.contact-card textarea:focus {
+
+  outline: none;
+
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 3px rgba(238, 29, 82, 0.1);
+
+}
+
+
+
+.textarea-icon {
+
+  position: relative;
+
+}
+
+
+
+.textarea-icon svg {
+
+  position: absolute;
+
+  left: 0.75rem;
+
+  top: 0.75rem;
+
+  width: 1.25rem;
+
+  height: 1.25rem;
+
+  color: var(--muted);
+
+}
+
+
+
+.contact-email {
+
+  text-align: center;
+
+  margin-top: 2rem;
+
+  padding-top: 2rem;
+
+  border-top: 1px solid var(--card-border);
+
+}
+
+
+
+.contact-email p {
+
+  color: var(--muted);
+
+  font-size: 0.875rem;
+
+  margin-bottom: 0.5rem;
+
+}
+
+
+
+.contact-email a {
+
+  color: var(--primary);
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+}
+
+
+
+.contact-email a:hover {
+
+  text-decoration: underline;
+
+} 
 
 @media (max-width: 640px) {
   .hero-title {
