@@ -247,17 +247,123 @@
             </button>
           </div>
 
-       <div id="freeModal" class="modal" style="display:none;">
-    <div class="modal-content">
-        <h3>Merr 1,000 Views Falas</h3>
-        <form id="free-order-form">
-            <input type="url" name="link" id="tiktok-url" placeholder="Ngjit linkun e videos këtu..." required>
-            <input type="email" name="email" placeholder="Email-i yt..." required>
-            
-            <div id="api-status-message" style="margin-top:10px; font-size: 14px;"></div>
-            
-            <button type="submit" class="btn btn-secondary">Konfirmo Porosinë</button>
-            <button type="button" onclick="closeModal()">Mbyll</button>
+          <div class="card card-free card-views" data-testid="card-free-views">
+
+            <div class="card-badge card-badge-secondary">Kohë e Kufizuar</div>
+
+            <div class="card-header">
+
+              <div class="card-icon views">
+
+                <svg
+
+                  viewBox="0 0 24 24"
+
+                  fill="none"
+
+                  stroke="currentColor"
+
+                  stroke-width="2"
+
+                >
+
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+
+                  <circle cx="12" cy="12" r="3" />
+
+                </svg>
+
+              </div>
+
+              <h3 class="card-title">Views Falas</h3>
+
+            </div>
+
+            <div class="card-amount">1,000 <span>views</span></div>
+
+            <ul class="card-features">
+
+              <li>
+
+                <svg
+
+                  viewBox="0 0 24 24"
+
+                  fill="none"
+
+                  stroke="currentColor"
+
+                  stroke-width="2"
+
+                >
+
+                  <polyline points="20 6 9 17 4 12" />
+
+                </svg>
+
+                Views të vërteta nga përdorues realë
+
+              </li>
+
+              <li>
+
+                <svg
+
+                  viewBox="0 0 24 24"
+
+                  fill="none"
+
+                  stroke="currentColor"
+
+                  stroke-width="2"
+
+                >
+
+                  <polyline points="20 6 9 17 4 12" />
+
+                </svg>
+
+                Dorëzim brenda 24 orëve
+
+              </li>
+
+              <li>
+
+                <svg
+
+                  viewBox="0 0 24 24"
+
+                  fill="none"
+
+                  stroke="currentColor"
+
+                  stroke-width="2"
+
+                >
+
+                  <polyline points="20 6 9 17 4 12" />
+
+                </svg>
+
+                Pa fjalëkalim të nevojshëm
+
+              </li>
+
+            </ul>
+
+            <button
+
+              class="btn btn-secondary btn-full"
+
+              onclick="openFreeModal('views', 1000)"
+
+              data-testid="button-get-free-views"
+
+            >
+
+              Get
+
+            </button>
         </form>
     </div>
 </div>
