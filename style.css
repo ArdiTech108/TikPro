@@ -1480,6 +1480,65 @@ body {
     width: 0%;
     transition: width 0.4s ease;
 }
+/* --- ELITE BACKGROUND PER PRIVACY (VETEM CSS) --- */
+
+.body2 {
+    /* Sfondi bazë: e zezë e thellë */
+    background-color: #020202 !important;
+    background-image: 
+        /* Rrjeta (Grid) e hollë */
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Drita Rozë (TikTok Primary) në qoshen lart-djathtas */
+.body2::before {
+    content: "";
+    position: fixed;
+    top: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(238, 29, 82, 0.12) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: -1;
+    pointer-events: none;
+    animation: pulseGlow 10s ease-in-out infinite alternate;
+}
+
+/* Drita Cian (TikTok Secondary) në qoshen poshtë-majtas */
+body::after {
+    content: "";
+    position: fixed;
+    bottom: -10%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 212, 170, 0.1) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: -1;
+    pointer-events: none;
+    animation: pulseGlow 15s ease-in-out infinite alternate-reverse;
+}
+
+/* Animacioni që i bën dritat të "marrin frymë" */
+@keyframes pulseGlow {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Sigurohu që kartat ekzistuese të rrinë bukur mbi këtë sfond */
+.privacy-card, .privacy-intro {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+}
 
 
 
