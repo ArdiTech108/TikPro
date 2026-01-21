@@ -1480,93 +1480,42 @@ body {
     width: 0%;
     transition: width 0.4s ease;
 }
-/* --- ELITE PRIVACY DESIGN PËR .body2 --- */
+/* ============================================================
+   ULTRA MAX ELITE DESIGN - SYSTEM 2026
+   ============================================================ */
 
 .body2 {
-    background-color: #010101 !important;
+    background-color: #000000 !important;
     margin: 0;
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
-    /* Teksturë mikroskopike për ndjesi premium */
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-    background-attachment: fixed;
+    color: #ffffff;
 }
 
-/* Shtresa 1: Mjegullnajë (Nebula) që lëviz në 3 pika */
+/* --- SFONDI KOSMIK (Drita që lëvizin në 4 kënde) --- */
 .body2::before {
     content: "";
     position: fixed;
     inset: -50%;
     z-index: -2;
     background: 
-        radial-gradient(circle at 15% 15%, rgba(238, 29, 82, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 85% 85%, rgba(0, 212, 170, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
-    filter: blur(100px);
-    animation: spaceFloat 20s ease-in-out infinite alternate;
+        radial-gradient(circle at 10% 10%, rgba(238, 29, 82, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(0, 212, 170, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 10% 90%, rgba(139, 92, 246, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(238, 29, 82, 0.08) 0%, transparent 40%);
+    filter: blur(140px);
+    animation: nebulaOrbit 30s linear infinite;
+    pointer-events: none;
 }
 
-/* Shtresa 2: Rrjeta (Grid) që zbehet në perspektivë */
+/* --- GRIDI DHE TEKSTURA (Grainy Filter) --- */
 .body2::after {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -1;
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
-}
-
-@keyframes spaceFloat {
-    0% { transform: scale(1) translate(0, 0); }
-    100% { transform: scale(1.1) translate(2%, 4%); }
-}
-
-/* Karta Pro - Glassmorphism me shkëlqim anësor (Border Beam) */
-.body2 .privacy-card, 
-.body2 .privacy-intro {
-    background: rgba(10, 10, 10, 0.3) !important;
-    backdrop-filter: blur(40px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.15) !important; /* Dritë nga lart */
-    border-radius: 28px !important;
-    padding: 3rem !important;
-    box-shadow: 
-        0 30px 60px rgba(0, 0, 0, 0.6),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.02) !important;
-    margin-bottom: 35px;
-}
-
-/* Teksti me Gradient të butë Silver-White */
-.body2 h1, .body2 h2 {
-    background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.6) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
-}
-
-/* Stilimi i listave me pika neoni */
-.body2 .privacy-card ul li {
-    position: relative;
-    padding-left: 25px;
-    color: rgba(255, 255, 255, 0.7) !important;
-    margin-bottom: 12px;
-    list-style: none;
-}
-
-.body2 .privacy-card ul li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 6px;
-    height: 6px;
-    background: var(--primary);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--primary);
-}
+        linear-gradient(rgba(255, 255, 255, 0.02) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1.5px, transparent 1.5px),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08
