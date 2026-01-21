@@ -1465,6 +1465,65 @@ body {
     transition: width 0.4s ease;
 }
 
+/* --- STILIMI I VEÇANTË PËR CONTACT DHE PRIVACY --- */
+
+/* 1. Sfondi i dedikuar për këto faqe */
+.page-header {
+    background: linear-gradient(to bottom, rgba(238, 29, 82, 0.05), transparent);
+    padding: 6rem 0 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 2. Kartat Glassmorphism (Efekti Xham) */
+.contact-card, .privacy-card, .privacy-intro {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: 3rem !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 3. Stilimi i fushave të shkrimit (Inputs) te Kontakti */
+.contact-card input, 
+.contact-card textarea {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    border-radius: var(--radius) !important;
+    padding: 1rem 1rem 1rem 3rem !important; /* Hapësirë për ikona */
+    transition: all 0.3s ease !important;
+}
+
+.contact-card input:focus, 
+.contact-card textarea:focus {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 15px rgba(238, 29, 82, 0.3) !important;
+    outline: none;
+}
+
+/* 4. Stilimi i Privacy Sections */
+.privacy-section-icon {
+    background: linear-gradient(135deg, rgba(238, 29, 82, 0.2), rgba(0, 212, 170, 0.2)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(238, 29, 82, 0.2);
+}
+
+.privacy-card strong {
+    color: var(--primary); /* I bën pikat kyçe të dallohen */
+}
+
+/* 5. Butoni i dërgimit në Kontakt */
+.contact-card .btn-primary {
+    width: 100%;
+    padding: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-top: 1rem;
+}
 
 
 
