@@ -500,7 +500,28 @@ body {
     font-size: 2.5rem;
   }
 }
+/* Targeton elementin kryesor që krijon JavaScript-i brenda header-it */
+    .header .wg-default {
+        display: block !important;
+        text-align: center !important;
+        margin: 15px auto !important; /* E qendron dhe i jep hapësirë */
+        width: 100% !important;
+        position: relative !important;
+    }
 
+    /* Targeton listën e gjuhëve (Drop-down ose listë) */
+    .header .country-selector {
+        background-color: transparent !important;
+        border: none !important;
+        justify-content: center !important;
+    }
+
+    /* Targeton flamurin dhe tekstin brenda butonit */
+    .header .wg-default a {
+        padding: 10px !important;
+        font-size: 14px !important;
+        color: #fff !important; /* Nëse dëshiron tekst të bardhë */
+    }
 .free-packages-grid {
   display: grid;
   gap: 1.5rem;
