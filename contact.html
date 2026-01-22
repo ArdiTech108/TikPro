@@ -129,7 +129,8 @@
           shpejt.
         </p>
 
-        <form id="contactForm" onsubmit="submitContactForm(event)">
+        <form action="https://formspree.io/f/mrepgdnq" method="POST" id="contactForm">
+          <input type="hidden" name="_next" value="https://tik-pro-psi.vercel.app/contact.html">
           <div class="form-group">
             <label for="contactName">Emri Juaj</label>
             <div class="input-icon">
@@ -142,13 +143,7 @@
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                 <circle cx="12" cy="7" r="4" />
               </svg>
-              <input
-                type="text"
-                id="contactName"
-                placeholder="Emri dhe mbiemri"
-                required
-                data-testid="input-name"
-              />
+         <input type="text" id="contactName" name="name" placeholder="Emri dhe mbiemri" required />
             </div>
           </div>
           <div class="form-group">
@@ -165,13 +160,7 @@
                 />
                 <polyline points="22,6 12,13 2,6" />
               </svg>
-              <input
-                type="email"
-                id="contactEmail"
-                placeholder="email@shembull.com"
-                required
-                data-testid="input-email"
-              />
+          <input type="email" id="contactEmail" name="email" placeholder="email@shembull.com" required />
             </div>
           </div>
           <div class="form-group">
@@ -187,12 +176,7 @@
                   d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
                 />
               </svg>
-              <textarea
-                id="contactMessage"
-                placeholder="Shkruani mesazhin tuaj këtu..."
-                required
-                data-testid="input-message"
-              ></textarea>
+             <textarea id="contactMessage" name="message" placeholder="Shkruani mesazhin tuaj këtu..." required></textarea>
             </div>
           </div>
           <button
@@ -261,7 +245,7 @@
       <div class="contact-email">
         <p>Ose na kontaktoni direkt në:</p>
         <a href="mailto:ajashanica187@gmail.com" data-testid="link-email"
-          >ajashanica187@gmail.com</a
+          >infotikpro@gmail.com</a
         >
       </div>
     </div>
@@ -305,7 +289,7 @@
                 />
                 <polyline points="22,6 12,13 2,6" />
               </svg>
-              ajashanica187@gmail.com
+              infotikpro@gmail.com
             </a>
           </div>
         </div>
