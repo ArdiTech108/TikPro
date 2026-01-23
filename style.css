@@ -1629,3 +1629,67 @@ body {
     font-size: 1rem;
   }
 }
+
+/* =============== ANIMACIONE TË REJA =============== */
+
+/* Floating animation for cards */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.package-card:hover {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Neon glow for popular cards */
+.package-card.popular {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(238, 29, 82, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(238, 29, 82, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(238, 29, 82, 0); }
+}
+
+/* Button shine effect */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(30deg);
+  transition: left 0.6s;
+}
+
+.btn-primary:hover::after {
+  left: 120%;
+}
+
+/* Typewriter effect for hero title */
+.hero-title {
+  overflow: hidden;
+  border-right: .15em solid var(--primary);
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end),
+             blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--primary); }
+}
