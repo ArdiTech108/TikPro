@@ -897,7 +897,6 @@ body {
   }
 }
 
-/* Modals */
 .modal {
   display: none;
   position: fixed;
@@ -1011,7 +1010,6 @@ body {
   font-size: 0.875rem;
 }
 
-/* Forms */
 .form-group {
   margin-bottom: 1rem;
 }
@@ -1110,7 +1108,6 @@ body {
   font-weight: 700;
 }
 
-/* Success Modal */
 .success-content {
   text-align: center;
   padding: 1rem 0;
@@ -1173,22 +1170,46 @@ body {
 }
 
 .page-content {
-  max-width: 900px !important;
-  margin: 60px auto !important;
-  padding: 20px !important;
-  position: relative !important;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+  position: relative;
 }
 
 .contact-card {
-  background: rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(25px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 30px !important;
-  padding: 40px !important;
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4) !important;
-  margin-bottom: 40px !important;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 
+    0 40px 100px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  margin-bottom: 40px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dark .contact-card {
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 40px 100px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.contact-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  border-color: var(--primary);
+  box-shadow: 
+    0 50px 120px rgba(238, 29, 82, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.dark .contact-card:hover {
+  box-shadow: 
+    0 50px 120px rgba(238, 29, 82, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .contact-card h2 {
@@ -1257,175 +1278,252 @@ body {
   color: var(--primary);
   text-decoration: none;
   font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .contact-email a:hover {
   text-decoration: underline;
+  color: var(--primary-dark);
 }
 
-/* ============================================================
-   ELITE PRIVACY & CONTACT DESIGN (Glassmorphism 2.0)
-   ============================================================ */
+.dark .contact-email a:hover {
+  color: var(--primary-light);
+}
 
 .privacy-content {
-  max-width: 900px !important;
-  margin: 60px auto !important;
-  padding: 20px !important;
-  position: relative !important;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+  position: relative;
 }
 
-/* Karta kryesore - Efekti Ultra Glass */
 .privacy-intro,
 .privacy-card {
-  background: rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(25px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 30px !important;
-  padding: 40px !important;
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4) !important;
-  margin-bottom: 40px !important;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 
+    0 40px 100px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  margin-bottom: 40px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Animacioni kur kalon miun mbi kartë */
-.privacy-card:hover,
-.contact-card:hover {
-  transform: translateY(-10px) scale(1.01) !important;
-  border-color: rgba(238, 29, 82, 0.4) !important;
-  box-shadow: 0 0 40px rgba(238, 29, 82, 0.1) !important;
+.dark .privacy-intro,
+.dark .privacy-card {
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 40px 100px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Headeri i seksioneve (Privacy & Contact) */
+.privacy-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  border-color: var(--primary);
+  box-shadow: 
+    0 50px 120px rgba(238, 29, 82, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.dark .privacy-card:hover {
+  box-shadow: 
+    0 50px 120px rgba(238, 29, 82, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
 .privacy-section-header {
-  display: flex !important;
-  align-items: center !important;
-  gap: 20px !important;
-  margin-bottom: 25px !important;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
 }
 
-/* Ikonat me Neon Glow */
 .privacy-section-icon {
-  width: 55px !important;
-  height: 55px !important;
-  padding: 12px !important;
-  border-radius: 18px !important;
-  background: rgba(255, 255, 255, 0.05) !important;
-  position: relative !important;
-  overflow: hidden !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  width: 55px;
+  height: 55px;
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(238, 29, 82, 0.08);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Shtoja një shkëlqim të jashtëm ikonave sipas klasave */
+.dark .privacy-section-icon {
+  background: rgba(255, 255, 255, 0.05);
+}
+
 .privacy-section-icon.primary {
-  color: #ee1d52 !important;
-  filter: drop-shadow(0 0 15px #ee1d52) !important;
+  color: var(--primary);
+  filter: drop-shadow(0 0 10px rgba(238, 29, 82, 0.3));
 }
 
 .privacy-section-icon.cyan {
-  color: #00d4aa !important;
-  filter: drop-shadow(0 0 15px #00d4aa) !important;
+  color: var(--secondary);
+  filter: drop-shadow(0 0 10px rgba(0, 212, 170, 0.3));
 }
 
 .privacy-section-icon.blue {
-  color: #3b82f6 !important;
-  filter: drop-shadow(0 0 15px #3b82f6) !important;
+  color: #3b82f6;
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
 }
 
 .privacy-section-icon.purple {
-  color: #8b5cf6 !important;
-  filter: drop-shadow(0 0 15px #8b5cf6) !important;
+  color: #8b5cf6;
+  filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.3));
 }
 
-/* Teksti brenda kartave */
+.dark .privacy-section-icon.primary {
+  filter: drop-shadow(0 0 15px rgba(238, 29, 82, 0.5));
+}
+
+.dark .privacy-section-icon.cyan {
+  filter: drop-shadow(0 0 15px rgba(0, 212, 170, 0.5));
+}
+
+.dark .privacy-section-icon.blue {
+  filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.5));
+}
+
+.dark .privacy-section-icon.purple {
+  filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.5));
+}
+
 .privacy-card p,
-.privacy-card li {
-  font-size: 1.05rem !important;
-  color: rgba(255, 255, 255, 0.7) !important;
-  line-height: 1.8 !important;
-  margin-bottom: 15px !important;
+.privacy-card li,
+.contact-card p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.dark .privacy-card p,
+.dark .privacy-card li,
+.dark .contact-card p {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .privacy-card strong {
-  color: #fff !important;
-  background: linear-gradient(90deg, #ee1d52, #ff3366) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  font-weight: 800 !important;
+  color: var(--primary);
+  font-weight: 800;
 }
 
-/* Lista e stilit "Futuristic" */
+.dark .privacy-card strong {
+  background: linear-gradient(90deg, #ee1d52, #ff3366);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .privacy-card ul {
-  list-style: none !important;
-  padding-left: 5px !important;
+  list-style: none;
+  padding-left: 0;
 }
 
 .privacy-card li {
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
 .privacy-card li::before {
-  content: '✓' !important;
-  color: #00d4aa !important;
-  font-weight: bold !important;
-  background: rgba(0, 212, 170, 0.1) !important;
-  width: 24px !important;
-  height: 24px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border-radius: 50% !important;
-  font-size: 12px !important;
+  content: '✓';
+  color: var(--success);
+  font-weight: bold;
+  background: rgba(34, 197, 94, 0.1);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 12px;
+  flex-shrink: 0;
 }
 
-/* --- KONTAKTI (Ndryshime radikale) --- */
+.dark .privacy-card li::before {
+  background: rgba(0, 212, 170, 0.1);
+  color: var(--secondary);
+}
+
 .contact-card input,
 .contact-card textarea {
-  background: rgba(255, 255, 255, 0.03) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 15px !important;
-  padding: 15px 20px 15px 50px !important;
-  color: #fff !important;
-  font-size: 1rem !important;
-  transition: all 0.3s ease !important;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 15px 20px 15px 50px;
+  color: var(--foreground);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.dark .contact-card input,
+.dark .contact-card textarea {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .contact-card input:focus,
 .contact-card textarea:focus {
-  background: rgba(238, 29, 82, 0.05) !important;
-  border-color: #ee1d52 !important;
-  box-shadow: 0 0 20px rgba(238, 29, 82, 0.2) !important;
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(238, 29, 82, 0.2);
+  background: rgba(238, 29, 82, 0.05);
 }
 
-/* Butoni dërgo si në filma Sci-Fi */
+.dark .contact-card input:focus,
+.dark .contact-card textarea:focus {
+  background: rgba(238, 29, 82, 0.05);
+}
+
 .contact-card .btn-primary {
-  background: linear-gradient(45deg, #ee1d52, #ff3366) !important;
-  border: none !important;
-  height: 55px !important;
-  border-radius: 15px !important;
-  font-size: 1.1rem !important;
-  letter-spacing: 2px !important;
-  text-transform: uppercase !important;
-  box-shadow: 0 10px 30px rgba(238, 29, 82, 0.3) !important;
-  cursor: pointer !important;
+  background: linear-gradient(45deg, var(--primary), var(--primary-light));
+  border: none;
+  height: 55px;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(238, 29, 82, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dark .contact-card .btn-primary {
+  box-shadow: 0 10px 30px rgba(238, 29, 82, 0.4);
 }
 
 .contact-card .btn-primary:hover {
-  box-shadow: 0 15px 40px rgba(238, 29, 82, 0.5) !important;
-  transform: scale(1.02) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(238, 29, 82, 0.4);
 }
 
-/* Privacy Note - kutia e shënimeve në fund */
+.dark .contact-card .btn-primary:hover {
+  box-shadow: 0 15px 40px rgba(238, 29, 82, 0.6);
+}
+
 .privacy-note {
-  background: rgba(0, 212, 170, 0.05) !important;
-  border: 1px dashed rgba(0, 212, 170, 0.3) !important;
-  border-radius: 20px !important;
-  padding: 25px !important;
-  text-align: center !important;
+  background: rgba(0, 212, 170, 0.05);
+  border: 1px dashed rgba(0, 212, 170, 0.3);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.dark .privacy-note {
+  background: rgba(0, 212, 170, 0.05);
+  border: 1px dashed rgba(0, 212, 170, 0.3);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 @media (max-width: 640px) {
@@ -1440,11 +1538,6 @@ body {
   }
   .card-amount {
     font-size: 2rem;
-  }
-  .privacy-card,
-  .contact-card {
-    padding: 20px !important;
-    border-radius: 20px !important;
   }
 }
 
@@ -1541,4 +1634,64 @@ body {
 @keyframes fluidMove {
   0% { transform: translate(0%, 0%) rotate(0deg); }
   100% { transform: translate(5%, 5%) rotate(3deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.privacy-card,
+.contact-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.privacy-card:nth-child(2) { animation-delay: 0.1s; }
+.privacy-card:nth-child(3) { animation-delay: 0.2s; }
+.privacy-card:nth-child(4) { animation-delay: 0.3s; }
+
+@media (max-width: 768px) {
+  .privacy-content,
+  .page-content {
+    margin: 30px auto;
+    padding: 15px;
+  }
+  
+  .privacy-card,
+  .contact-card,
+  .privacy-intro {
+    padding: 25px;
+    border-radius: 20px;
+  }
+  
+  .privacy-section-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .privacy-section-icon {
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-card,
+  .contact-card {
+    padding: 20px;
+    border-radius: 15px;
+  }
+  
+  .contact-card .btn-primary {
+    height: 50px;
+    font-size: 1rem;
+  }
 }
