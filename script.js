@@ -1,3 +1,5 @@
+
+//Dark mode
 function initTheme() {
   const themeToggle = document.getElementById("themeToggle");
   const savedTheme = localStorage.getItem("theme");
@@ -17,7 +19,7 @@ function initTheme() {
     });
   }
 }
-
+//Paketat 
 const likesPackages = [
   { id: "likes-1", amount: 100, price: 0.99, popular: false },
   { id: "likes-2", amount: 250, price: 1.99, popular: false },
@@ -38,7 +40,7 @@ const viewsPackages = [
   { id: "views-2", amount: 1000, price: 1.49, popular: false },
   { id: "views-3", amount: 2500, price: 2.99, popular: false },
   { id: "views-4", amount: 5000, price: 4.99, popular: true },
-  { id: "views-5", amount: 7500, price: 6.99, popular: true },
+  { id: "views-5", amount: 7500, price: 6.99, popular: false },
   { id: "views-6", amount: 10000, price: 8.99, popular: false },
   { id: "views-7", amount: 25000, price: 17.99, popular: false },
   { id: "views-8", amount: 50000, price: 29.99, popular: false },
@@ -47,7 +49,7 @@ const viewsPackages = [
   { id: "views-11", amount: 250000, price: 99.99, popular: false },
   { id: "views-12", amount: 500000, price: 169.99, popular: false },
 ];
-
+//Paketat e popullarizuar
 function formatNumber(num) {
   if (num >= 1000000) {
     return (num / 1000000).toFixed(1) + "M";
@@ -122,7 +124,7 @@ function renderPackages() {
       .join("");
   }
 }
-
+//Menyja
 function initMobileMenu() {
   const menuToggle = document.getElementById("menuToggle");
   const mobileNav = document.getElementById("mobileNav");
@@ -175,7 +177,7 @@ function submitFreeForm(event) {
     alert("Ju lutem vendosni një link të vlefshëm TikTok!");
     return;
   }
-
+//Linku per video
   const orderData = {
     type: type,
     amount: parseInt(amount),
