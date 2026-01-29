@@ -1,5 +1,3 @@
-
-//Dark mode
 function initTheme() {
   const themeToggle = document.getElementById("themeToggle");
   const savedTheme = localStorage.getItem("theme");
@@ -19,35 +17,21 @@ function initTheme() {
     });
   }
 }
-//Paketat 
 
-const followersPackages = [
-  { id: "followers-1", amount: 100, price: 1.99, popular: false },
-  { id: "followers-2", amount: 250, price: 3.49, popular: false },
-  { id: "followers-3", amount: 500, price: 5.99, popular: false },
-  { id: "followers-4", amount: 1000, price: 9.99, popular: true },
-  { id: "followers-5", amount: 2500, price: 19.99, popular: false },
-  { id: "followers-6", amount: 5000, price: 34.99, popular: false },
-  { id: "followers-7", amount: 7500, price: 49.99, popular: false },
-  { id: "followers-8", amount: 10000, price: 64.99, popular: false },
-  { id: "followers-9", amount: 15000, price: 89.99, popular: false },
-  { id: "followers-10", amount: 20000, price: 119.99, popular: false },
-  { id: "followers-11", amount: 50000, price: 249.99, popular: false },
-  { id: "followers-12", amount: 100000, price: 449.99, popular: false },
-];
 const likesPackages = [
   { id: "likes-1", amount: 100, price: 0.99, popular: false },
   { id: "likes-2", amount: 250, price: 1.99, popular: false },
   { id: "likes-3", amount: 500, price: 2.99, popular: false },
   { id: "likes-4", amount: 1000, price: 4.99, popular: true },
   { id: "likes-5", amount: 2500, price: 9.99, popular: false },
-  { id: "likes-6", amount: 4000, price: 12.99, popular: false },
-  { id: "likes-7", amount: 5000, price: 17.99, popular: false },
-  { id: "likes-8", amount: 10000, price: 29.99, popular: false },
-  { id: "likes-9", amount: 25000, price: 59.99, popular: false },
-  { id: "likes-10", amount: 50000, price: 99.99, popular: false },
-  { id: "likes-11", amount: 100000, price: 179.99, popular: false },
-  { id: "likes-12", amount: 500000, price: 399.99, popular: false },
+  { id: "likes-6", amount: 3000, price: 14.99, popular: false },
+  { id: "likes-7", amount: 4500, price: 19.99, popular: false },
+  { id: "likes-8", amount: 5000, price: 17.99, popular: false },
+  { id: "likes-9", amount: 10000, price: 29.99, popular: false },
+  { id: "likes-10", amount: 25000, price: 59.99, popular: false },
+  { id: "likes-11", amount: 50000, price: 99.99, popular: false },
+  { id: "likes-12", amount: 100000, price: 179.99, popular: false },
+  { id: "likes-13", amount: 1000000, price: 499.99, popular: false },
 ];
 
 const viewsPackages = [
@@ -55,53 +39,15 @@ const viewsPackages = [
   { id: "views-2", amount: 1000, price: 1.49, popular: false },
   { id: "views-3", amount: 2500, price: 2.99, popular: false },
   { id: "views-4", amount: 5000, price: 4.99, popular: true },
-  { id: "views-5", amount: 7500, price: 6.99, popular: false },
-  { id: "views-6", amount: 10000, price: 8.99, popular: false },
-  { id: "views-7", amount: 25000, price: 17.99, popular: false },
-  { id: "views-8", amount: 50000, price: 29.99, popular: false },
-  { id: "views-9", amount: 75000, price: 34.99, popular: false },
-  { id: "views-10", amount: 100000, price: 49.99, popular: false },
-  { id: "views-11", amount: 250000, price: 99.99, popular: false },
-  { id: "views-12", amount: 500000, price: 169.99, popular: false },
+  { id: "views-5", amount: 10000, price: 8.99, popular: false },
+  { id: "views-6", amount: 25000, price: 17.99, popular: false },
+  { id: "views-7", amount: 50000, price: 29.99, popular: false },
+
+  { id: "views-8", amount: 100000, price: 49.99, popular: false },
+  { id: "views-9", amount: 250000, price: 99.99, popular: false },
+  { id: "views-10", amount: 500000, price: 169.99, popular: false },
 ];
-//Paketat e popullarizuar
 
-function renderPackages() {
-  const likesGrid = document.getElementById("likesGrid");
-  const viewsGrid = document.getElementById("viewsGrid");
-  const followersGrid = document.getElementById("followersGrid"); // Shto këtë
-
-  // Render Likes
-  if (likesGrid) {
-    likesGrid.innerHTML = likesPackages.map(pkg => generateCardHTML(pkg, 'likes', 'btn-primary')).join("");
-  }
-
-  // Render Views
-  if (viewsGrid) {
-    viewsGrid.innerHTML = viewsPackages.map(pkg => generateCardHTML(pkg, 'views', 'btn-secondary')).join("");
-  }
-
-  // Render Followers (Kjo ishte pjesa që mungonte)
-  if (followersGrid) {
-    followersGrid.innerHTML = followersPackages.map(pkg => generateCardHTML(pkg, 'followers', 'btn-primary')).join("");
-  }
-}
-
-// Funksion ndihmës për të mos përsëritur kodin (Refactoring)
-function generateCardHTML(pkg, type, btnClass) {
-  return `
-    <div class="package-card ${type} ${pkg.popular ? "popular" : ""}" data-testid="card-${pkg.id}">
-        ${pkg.popular ? '<span class="popular-badge">Më i Popullarizuar</span>' : ""}
-        <div class="package-amount">${formatNumber(pkg.amount)}</div>
-        <div class="package-type">${type}</div>
-        <div class="package-price">€${pkg.price.toFixed(2)}</div>
-        <button class="btn ${pkg.popular ? btnClass : "btn-outline"} btn-full" 
-                onclick="openPaidModal('${type}', ${pkg.amount}, ${pkg.price})"
-                data-testid="button-buy-${pkg.id}">
-            Buy Now
-        </button>
-    </div>`;
-}
 function formatNumber(num) {
   if (num >= 1000000) {
     return (num / 1000000).toFixed(1) + "M";
@@ -135,13 +81,13 @@ function renderPackages() {
                   pkg.popular ? "btn-primary" : "btn-outline"
                 } btn-full" 
                         onclick="openPaidModal('likes', ${pkg.amount}, ${
-          pkg.price
-        })"
+                          pkg.price
+                        })"
                         data-testid="button-buy-${pkg.id}">
                     Buy Now
                 </button>
             </div>
-        `
+        `,
       )
       .join("");
   }
@@ -165,18 +111,18 @@ function renderPackages() {
                   pkg.popular ? "btn-secondary" : "btn-outline"
                 } btn-full" 
                         onclick="openPaidModal('views', ${pkg.amount}, ${
-          pkg.price
-        })"
+                          pkg.price
+                        })"
                         data-testid="button-buy-${pkg.id}">
                     Buy Now
                 </button>
             </div>
-        `
+        `,
       )
       .join("");
   }
 }
-//Menyja
+
 function initMobileMenu() {
   const menuToggle = document.getElementById("menuToggle");
   const mobileNav = document.getElementById("mobileNav");
@@ -188,7 +134,6 @@ function initMobileMenu() {
     });
   }
 }
-
 
 function openFreeModal(type, amount) {
   const modal = document.getElementById("freeModal");
@@ -230,7 +175,7 @@ function submitFreeForm(event) {
     alert("Ju lutem vendosni një link të vlefshëm TikTok!");
     return;
   }
-//Linku per video
+
   const orderData = {
     type: type,
     amount: parseInt(amount),
@@ -245,8 +190,8 @@ function submitFreeForm(event) {
   closeFreeModal();
   showSuccessModal(
     `Porosia juaj për ${formatNumber(
-      parseInt(amount)
-    )} ${type} falas u dërgua me sukses! Do t'ju kontaktojmë në ${email}.`
+      parseInt(amount),
+    )} ${type} falas u dërgua me sukses! Do t'ju kontaktojmë në ${email}.`,
   );
 }
 
@@ -294,7 +239,7 @@ function submitPaidForm(event) {
   const cardNumber = document.getElementById("paidCardNumber").value;
   const address = document.getElementById("paidAddress").value;
   const paymentMethod = document.querySelector(
-    'input[name="paymentMethod"]:checked'
+    'input[name="paymentMethod"]:checked',
   ).value;
 
   if (!videoLink.includes("tiktok.com")) {
@@ -325,8 +270,8 @@ function submitPaidForm(event) {
   closePaidModal();
   showSuccessModal(
     `Porosia juaj për ${formatNumber(parseInt(amount))} ${type} (€${parseFloat(
-      price
-    ).toFixed(2)}) u dërgua me sukses! Do t'ju kontaktojmë në ${email}.`
+      price,
+    ).toFixed(2)}) u dërgua me sukses! Do t'ju kontaktojmë në ${email}.`,
   );
 }
 
@@ -392,7 +337,3 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPackages();
   initMobileMenu();
 });
-
-
-
-
