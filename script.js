@@ -26,7 +26,7 @@ const likesPackages = [
   { id: "likes-5", amount: 2500, price: 9.99, popular: false },
   { id: "likes-6", amount: 3000, price: 14.99, popular: false },
   { id: "likes-7", amount: 4500, price: 19.99, popular: false },
-  { id: "likes-8", amount: 5000, price: 17.99, popular: false },
+  { id: "likes-8", amount: 5000, price: 19.99, popular: false },
   { id: "likes-9", amount: 10000, price: 29.99, popular: false },
   { id: "likes-10", amount: 25000, price: 59.99, popular: false },
   { id: "likes-11", amount: 50000, price: 99.99, popular: false },
@@ -42,7 +42,6 @@ const viewsPackages = [
   { id: "views-5", amount: 10000, price: 8.99, popular: false },
   { id: "views-6", amount: 25000, price: 17.99, popular: false },
   { id: "views-7", amount: 50000, price: 29.99, popular: false },
-
     { id: "views-8", amount: 75000, price: 34.99, popular: false },
   { id: "views-9", amount: 100000, price: 49.99, popular: false },
   { id: "views-10", amount: 250000, price: 99.99, popular: false },
