@@ -20,6 +20,21 @@ function initTheme() {
   }
 }
 //Paketat 
+
+const followersPackages = [
+  { id: "followers-1", amount: 100, price: 1.99, popular: false },
+  { id: "followers-2", amount: 250, price: 3.49, popular: false },
+  { id: "followers-3", amount: 500, price: 5.99, popular: false },
+  { id: "followers-4", amount: 1000, price: 9.99, popular: true },
+  { id: "followers-5", amount: 2500, price: 19.99, popular: false },
+  { id: "followers-6", amount: 5000, price: 34.99, popular: false },
+  { id: "followers-7", amount: 7500, price: 49.99, popular: false },
+  { id: "followers-8", amount: 10000, price: 64.99, popular: false },
+  { id: "followers-9", amount: 15000, price: 89.99, popular: false },
+  { id: "followers-10", amount: 20000, price: 119.99, popular: false },
+  { id: "followers-11", amount: 50000, price: 249.99, popular: false },
+  { id: "followers-12", amount: 100000, price: 449.99, popular: false },
+];
 const likesPackages = [
   { id: "likes-1", amount: 100, price: 0.99, popular: false },
   { id: "likes-2", amount: 250, price: 1.99, popular: false },
