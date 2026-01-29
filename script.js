@@ -24,11 +24,13 @@ const likesPackages = [
   { id: "likes-3", amount: 500, price: 2.99, popular: false },
   { id: "likes-4", amount: 1000, price: 4.99, popular: true },
   { id: "likes-5", amount: 2500, price: 9.99, popular: false },
-  { id: "likes-6", amount: 5000, price: 17.99, popular: false },
-  { id: "likes-7", amount: 10000, price: 29.99, popular: false },
-  { id: "likes-8", amount: 25000, price: 59.99, popular: false },
-  { id: "likes-9", amount: 50000, price: 99.99, popular: false },
-  { id: "likes-10", amount: 100000, price: 179.99, popular: false },
+  { id: "likes-6", amount: 4000, price: 12.99, popular: false },
+  { id: "likes-7", amount: 5000, price: 17.99, popular: false },
+  { id: "likes-8", amount: 10000, price: 29.99, popular: false },
+  { id: "likes-9", amount: 25000, price: 59.99, popular: false },
+  { id: "likes-10", amount: 50000, price: 99.99, popular: false },
+  { id: "likes-11", amount: 100000, price: 179.99, popular: false },
+  { id: "likes-12", amount: 500000, price: 399.99, popular: false },
 ];
 
 const viewsPackages = [
@@ -36,12 +38,14 @@ const viewsPackages = [
   { id: "views-2", amount: 1000, price: 1.49, popular: false },
   { id: "views-3", amount: 2500, price: 2.99, popular: false },
   { id: "views-4", amount: 5000, price: 4.99, popular: true },
-  { id: "views-5", amount: 10000, price: 8.99, popular: false },
-  { id: "views-6", amount: 25000, price: 17.99, popular: false },
-  { id: "views-7", amount: 50000, price: 29.99, popular: false },
-  { id: "views-8", amount: 100000, price: 49.99, popular: false },
-  { id: "views-9", amount: 250000, price: 99.99, popular: false },
-  { id: "views-10", amount: 500000, price: 169.99, popular: false },
+  { id: "views-5", amount: 7500, price: 6.99, popular: true },
+  { id: "views-6", amount: 10000, price: 8.99, popular: false },
+  { id: "views-7", amount: 25000, price: 17.99, popular: false },
+  { id: "views-8", amount: 50000, price: 29.99, popular: false },
+  { id: "views-9", amount: 75000, price: 34.99, popular: false },
+  { id: "views-10", amount: 100000, price: 49.99, popular: false },
+  { id: "views-11", amount: 250000, price: 99.99, popular: false },
+  { id: "views-12", amount: 500000, price: 169.99, popular: false },
 ];
 
 function formatNumber(num) {
