@@ -65,6 +65,43 @@ const viewsPackages = [
   { id: "views-12", amount: 500000, price: 169.99, popular: false },
 ];
 //Paketat e popullarizuar
+
+function renderPackages() {
+  const likesGrid = document.getElementById("likesGrid");
+  const viewsGrid = document.getElementById("viewsGrid");
+  const followersGrid = document.getElementById("followersGrid"); // Shto këtë
+
+  // Render Likes
+  if (likesGrid) {
+    likesGrid.innerHTML = likesPackages.map(pkg => generateCardHTML(pkg, 'likes', 'btn-primary')).join("");
+  }
+
+  // Render Views
+  if (viewsGrid) {
+    viewsGrid.innerHTML = viewsPackages.map(pkg => generateCardHTML(pkg, 'views', 'btn-secondary')).join("");
+  }
+
+  // Render Followers (Kjo ishte pjesa që mungonte)
+  if (followersGrid) {
+    followersGrid.innerHTML = followersPackages.map(pkg => generateCardHTML(pkg, 'followers', 'btn-primary')).join("");
+  }
+}
+
+// Funksion ndihmës për të mos përsëritur kodin (Refactoring)
+function generateCardHTML(pkg, type, btnClass) {
+  return `
+    <div class="package-card ${type} ${pkg.popular ? "popular" : ""}" data-testid="card-${pkg.id}">
+        ${pkg.popular ? '<span class="popular-badge">Më i Popullarizuar</span>' : ""}
+        <div class="package-amount">${formatNumber(pkg.amount)}</div>
+        <div class="package-type">${type}</div>
+        <div class="package-price">€${pkg.price.toFixed(2)}</div>
+        <button class="btn ${pkg.popular ? btnClass : "btn-outline"} btn-full" 
+                onclick="openPaidModal('${type}', ${pkg.amount}, ${pkg.price})"
+                data-testid="button-buy-${pkg.id}">
+            Buy Now
+        </button>
+    </div>`;
+}
 function formatNumber(num) {
   if (num >= 1000000) {
     return (num / 1000000).toFixed(1) + "M";
@@ -151,6 +188,7 @@ function initMobileMenu() {
     });
   }
 }
+
 
 function openFreeModal(type, amount) {
   const modal = document.getElementById("freeModal");
