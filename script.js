@@ -18,20 +18,21 @@ function initTheme() {
   }
 }
 
+
 const likesPackages = [
   { id: "likes-1", amount: 100, price: 0.99, popular: false },
   { id: "likes-2", amount: 250, price: 1.99, popular: false },
   { id: "likes-3", amount: 500, price: 2.99, popular: false },
   { id: "likes-4", amount: 1000, price: 4.99, popular: true },
   { id: "likes-5", amount: 2500, price: 9.99, popular: false },
-  { id: "likes-6", amount: 3000, price: 14.99, popular: false },
-  { id: "likes-7", amount: 4500, price: 19.99, popular: false },
-  { id: "likes-8", amount: 5000, price: 19.99, popular: false },
+  { id: "likes-6", amount: 3500, price: 14.99, popular: false },
+
+  { id: "likes-7", amount: 5000, price: 17.99, popular: false },
+    { id: "likes-8", amount: 7500, price: 22.99, popular: false },
   { id: "likes-9", amount: 10000, price: 29.99, popular: false },
   { id: "likes-10", amount: 25000, price: 59.99, popular: false },
   { id: "likes-11", amount: 50000, price: 99.99, popular: false },
   { id: "likes-12", amount: 100000, price: 179.99, popular: false },
- 
 ];
 
 const viewsPackages = [
