@@ -31,7 +31,7 @@ const likesPackages = [
   { id: "likes-10", amount: 25000, price: 59.99, popular: false },
   { id: "likes-11", amount: 50000, price: 99.99, popular: false },
   { id: "likes-12", amount: 100000, price: 179.99, popular: false },
-  { id: "likes-13", amount: 1000000, price: 499.99, popular: false },
+ 
 ];
 
 const viewsPackages = [
@@ -43,10 +43,13 @@ const viewsPackages = [
   { id: "views-6", amount: 25000, price: 17.99, popular: false },
   { id: "views-7", amount: 50000, price: 29.99, popular: false },
 
-  { id: "views-8", amount: 100000, price: 49.99, popular: false },
-  { id: "views-9", amount: 250000, price: 99.99, popular: false },
-  { id: "views-10", amount: 500000, price: 169.99, popular: false },
+    { id: "views-8", amount: 75000, price: 34.99, popular: false },
+  { id: "views-9", amount: 100000, price: 49.99, popular: false },
+  { id: "views-10", amount: 250000, price: 99.99, popular: false },
+  { id: "views-11", amount: 500000, price: 169.99, popular: false }, 
+   { id: "views-12", amount: 1000000, price: 299.99, popular: false },
 ];
+
 
 function formatNumber(num) {
   if (num >= 1000000) {
