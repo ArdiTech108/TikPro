@@ -254,5 +254,26 @@
         75%, 100% { transform: scale(2); opacity: 0; }
       }
     </style>
+        <!--Chatbot-->
+    <script>
+    window.addEventListener('load', () => {
+        const bar = document.getElementById('loading-bar');
+        
+       
+        bar.style.width = '30%';
+        
+       
+        setTimeout(() => {
+            bar.style.width = '100%';
+            
+            /
+            setTimeout(() => {
+                bar.style.opacity = '0';
+            }, 400);
+        }, 300);
+    });
+</script>
+<script>
+(function(){if(!w
   </body>
 </html>
