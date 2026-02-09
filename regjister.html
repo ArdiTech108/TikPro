@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="sq">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regjistrohuni - TikPro</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Përdor të njëjtin CSS si login.html */
+      :root {
+        --primary-color: #4a90e2;
+        --secondary-color: #50e3c2;
+        --danger-color: #d0021b;
+        --success-color: #7ed321;
+        --dark-color: #2c3e50;
+        --light-color: #f8f9fa;
+        --text-dark: #333333;
+        --text-light: #666666;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: var(--text-dark);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .register-container {
+        width: 100%;
+        max-width: 400px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        animation: slideUp 0.5s ease;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .register-header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        padding: 2rem;
+        text-align: center;
+        color: white;
+      }
+
+      .register-header h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+
+      .register-form {
+        padding: 2rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .input-with-icon {
+        position: relative;
+      }
+
+      .input-with-icon input {
+        width: 100%;
+        padding: 0.875rem 1rem 0.875rem 3rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: var(--transition);
+        background: var(--light-color);
+      }
+
+      .input-with-icon input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        background: white;
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+      }
+
+      .input-with-icon i {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-light);
+      }
+
+      .password-toggle {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: var(--text-light);
+        cursor: pointer;
+        font-size: 1rem;
+        padding: 0.5rem;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        color: white;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+      }
+
+      .login-link {
+        text-align: center;
+        margin-top: 1.5rem;
+        color: var(--text-light);
+      }
+
+      .login-link a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        color: white;
+        font-weight: 500;
+        z-index: 10000;
+        animation: slideInRight 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+      }
+
+      @keyframes slideInRight {
+        from {
+          transform: translateX(400px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .notification.success {
+        background: var(--success-color);
+      }
+      .notification.error {
+        background: var(--danger-color);
+      }
+
+      .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+
+      .loading.active {
+        display: flex;
+      }
+
+      .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Register Container -->
+    <div class="register-container">
+      <div class="register-header">
+        <h2>
+          <i class="fas fa-user-plus"></i>
+          Krijo Llogari të Re
+        </h2>
+        <p>Regjistrohuni për të filluar përdorimin e TikPro</p>
+      </div>
+
+      <form class="register-form" id="registerForm">
+        <div class="form-group">
+          <label for="fullName">
+            <i class="fas fa-user"></i>
+            Emri i Plotë
+          </label>
+          <div class="input-with-icon">
+            <input
+              type="text"
+              id="fullName"
+              placeholder="Shkruani emrin tuaj të plotë"
+              required
+            />
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">
+            <i class="fas fa-envelope"></i>
+            Email Adresa
+          </label>
+          <div class="input-with-icon">
+            <input
+              type="email"
+              id="email"
+              placeholder="Shkruani email-in tuaj"
+              required
+            />
+            <i class="fas fa-envelope"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="username">
+            <i class="fas fa-at"></i>
+            Emri i Përdoruesit
+          </label>
+          <div class="input-with-icon">
+            <input
+              type="text"
+              id="username"
+              placeholder="Zgjidhni një emër përdoruesi"
+              required
+            />
+            <i class="fas fa-at"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">
+            <i class="fas fa-lock"></i>
+            Fjalëkalimi
+          </label>
+          <div class="input-with-icon">
+            <input
+              type="password"
+              id="password"
+              placeholder="Krijoni një fjalëkalim"
+              required
+            />
+            <i class="fas fa-lock"></i>
+            <button type="button" class="password-toggle" id="togglePassword">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">
+            <i class="fas fa-lock"></i>
+            Konfirmo Fjalëkalimin
+          </label>
+          <div class="input-with-icon">
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Përsëritni fjalëkalimin"
+              required
+            />
+            <i class="fas fa-lock"></i>
+            <button
+              type="button"
+              class="password-toggle"
+              id="toggleConfirmPassword"
+            >
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-user-plus"></i>
+          Krijo Llogarinë
+        </button>
+
+        <div class="login-link">
+          Keni tashmë një llogari?
+          <a href="login.html">Hyni këtu</a>
+        </div>
+      </form>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+    </div>
+
+    <script src="database.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Toggle password visibility
+        const togglePassword = document.getElementById("togglePassword");
+        const toggleConfirmPassword = document.getElementById(
+          "toggleConfirmPassword",
+        );
+        const passwordInput = document.getElementById("password");
+        const confirmPasswordInput = document.getElementById("confirmPassword");
+
+        togglePassword.addEventListener("click", function () {
+          const icon = this.querySelector("i");
+          if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+          } else {
+            passwordInput.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+          }
+        });
+
+        toggleConfirmPassword.addEventListener("click", function () {
+          const icon = this.querySelector("i");
+          if (confirmPasswordInput.type === "password") {
+            confirmPasswordInput.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+          } else {
+            confirmPasswordInput.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+          }
+        });
+
+        // Handle registration
+        document
+          .getElementById("registerForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById("fullName").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword =
+              document.getElementById("confirmPassword").value;
+
+            // Validation
+            if (
+              !fullName ||
+              !email ||
+              !username ||
+              !password ||
+              !confirmPassword
+            ) {
+              showNotification("Ju lutem plotësoni të gjitha fushat!", "error");
+              return;
+            }
+
+            if (password.length < 6) {
+              showNotification(
+                "Fjalëkalimi duhet të jetë së paku 6 karaktere!",
+                "error",
+              );
+              return;
+            }
+
+            if (password !== confirmPassword) {
+              showNotification("Fjalëkalimet nuk përputhen!", "error");
+              return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+              showNotification(
+                "Ju lutem shkruani një email të vlefshëm!",
+                "error",
+              );
+              return;
+            }
+
+            // Show loading
+            document.getElementById("loading").classList.add("active");
+
+            // Simulate API call
+            setTimeout(() => {
+              // Check if user exists
+              const existingUser =
+                db.findUserByUsernameOrEmail(username) ||
+                db.findUserByUsernameOrEmail(email);
+
+              if (existingUser) {
+                showNotification("Ky përdorues ekziston tashmë!", "error");
+                document.getElementById("loading").classList.remove("active");
+                return;
+              }
+
+              // Create new user
+              const newUser = db.createUser({
+                name: fullName,
+                username: username,
+                email: email,
+                password: password,
+              });
+
+              // Auto login
+              localStorage.setItem(
+                "tikproCurrentUser",
+                JSON.stringify(newUser),
+              );
+
+              showNotification("Llogaria u krijua me sukses!", "success");
+
+              // Redirect to home page
+              setTimeout(() => {
+                window.location.href = "index.html";
+              }, 1500);
+            }, 1000);
+          });
+
+        // Check if user is already logged in
+        const currentUser = JSON.parse(
+          localStorage.getItem("tikproCurrentUser"),
+        );
+        if (currentUser) {
+          window.location.href = "index.html";
+        }
+      });
+
+      // Notification function
+      function showNotification(message, type = "info") {
+        const notification = document.createElement("div");
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          notification.style.animation = "slideInRight 0.3s ease reverse";
+          setTimeout(() => {
+            notification.remove();
+          }, 300);
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

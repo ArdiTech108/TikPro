@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sq">
   <head>
     <meta charset="UTF-8" />
@@ -24,7 +24,10 @@
     <link rel="stylesheet" href="style.css" />
 
     <!-- Weglot (keep only once) -->
-    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.weglot.com/weglot.min.js"
+    ></script>
     <script>
       Weglot.initialize({
         api_key: "wg_407ceb0a754d47002779caeb2a39b20a6",
@@ -59,7 +62,9 @@
             margin: 10px auto;
           "
         >
-          <span style="position: relative; display: flex; width: 8px; height: 8px;">
+          <span
+            style="position: relative; display: flex; width: 8px; height: 8px"
+          >
             <span
               style="
                 position: absolute;
@@ -83,17 +88,46 @@
               "
             ></span>
           </span>
-          <span style="text-transform: uppercase; letter-spacing: 0.5px; font-weight: bold;"
+          <span
+            style="
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              font-weight: bold;
+            "
             >SMM Servers: Operational</span
           >
         </div>
 
         <nav class="nav-desktop" data-testid="nav-desktop">
-          <a href="index.html" class="nav-link">Kryefaqja</a>
+          <a href="index.html" class="nav-link active">Kryefaqja</a>
+          <a href="packages.html" class="nav-link">Paketa</a>
           <a href="contact.html" class="nav-link">Kontakt</a>
-          <a href="privacy.html" class="nav-link active">Privatësia</a>
-        </nav>
+          <a href="privacy.html" class="nav-link">Privatësia</a>
 
+          <!-- User Menu (do të shfaqet vetëm nëse user është logged in) -->
+          <div class="user-menu" id="userMenu" style="display: none">
+            <!-- Do të mbushët me JavaScript -->
+          </div>
+
+          <a
+            href="login.html"
+            class="nav-link admin-link"
+            title="Admin Login"
+            id="adminLink"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              style="width: 18px; height: 18px; margin-right: 5px"
+            >
+              <path
+                d="M12 2a5 5 0 0 0-5 5v2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2V7a5 5 0 0 0-5-5z"
+              />
+              <path d="M12 12h-2v2h2v-2zm0-4h-2v2h2V8z" />
+            </svg>
+            Admin
+          </a>
+        </nav>
         <div class="header-actions">
           <button
             class="theme-toggle"
@@ -128,24 +162,52 @@
               <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
             </svg>
           </button>
-
-          <button class="menu-toggle" id="menuToggle" data-testid="button-mobile-menu">
-            <span></span><span></span><span></span>
+          <button
+            class="menu-toggle"
+            id="menuToggle"
+            data-testid="button-mobile-menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
       </div>
-
       <nav class="nav-mobile" id="mobileNav">
-        <a href="index.html" class="nav-link">Kryefaqja</a>
+        <a href="index.html" class="nav-link active">Kryefaqja</a>
         <a href="contact.html" class="nav-link">Kontakt</a>
-        <a href="privacy.html" class="nav-link active">Privatësia</a>
+        <a href="packages.html" class="nav-link">Paketa</a>
+        <a href="privacy.html" class="nav-link">Privatësia</a>
+
+        <!-- User Menu (do të shfaqet vetëm nëse user është logged in) -->
+        <div class="user-menu" id="userMenu" style="display: none">
+          <!-- Do të mbushët me JavaScript -->
+        </div>
+        <a href="login.html" class="nav-link admin-link">
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            style="width: 18px; height: 18px; margin-right: 5px"
+          >
+            <path
+              d="M12 2a5 5 0 0 0-5 5v2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2V7a5 5 0 0 0-5-5z"
+            />
+            <path d="M12 12h-2v2h2v-2zm0-4h-2v2h2V8z" />
+          </svg>
+          Admin
+        </a>
       </nav>
     </header>
 
     <div class="page-header">
       <div class="container">
         <div class="page-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
           </svg>
         </div>
@@ -157,19 +219,24 @@
     <div class="privacy-content">
       <div class="privacy-intro">
         <p>
-          Në TikPro, ne e marrim seriozisht privatësinë tuaj. Kjo politikë privatësie
-          shpjegon se si mbledhim, përdorim dhe mbrojmë informacionin tuaj personal
-          kur përdorni shërbimet tona.
+          Në TikPro, ne e marrim seriozisht privatësinë tuaj. Kjo politikë
+          privatësie shpjegon se si mbledhim, përdorim dhe mbrojmë informacionin
+          tuaj personal kur përdorni shërbimet tona.
         </p>
       </div>
-
-    
 
       <div class="privacy-section">
         <div class="privacy-section-header">
           <div class="privacy-section-icon blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              />
               <polyline points="14 2 14 8 20 8" />
               <line x1="16" y1="13" x2="8" y2="13" />
               <line x1="16" y1="17" x2="8" y2="17" />
@@ -179,23 +246,28 @@
           <h2>Mbledhja e të Dhënave</h2>
         </div>
         <div class="privacy-card">
-          <p>Kur përdorni shërbimet tona, ne mbledhim informacionin e mëposhtëm:</p>
+          <p>
+            Kur përdorni shërbimet tona, ne mbledhim informacionin e mëposhtëm:
+          </p>
           <ul>
-            <li>Adresën tuaj të email-it për komunikim dhe konfirmim të porosive</li>
+            <li>
+              Adresën tuaj të email-it për komunikim dhe konfirmim të porosive
+            </li>
             <li>Linkun e videos TikTok që dëshironi të promovoni</li>
-            <li>Informacionin e pagesës (përpunohet në mënyrë të sigurt nga ofruesit e pagesave)</li>
+            <li>
+              Informacionin e pagesës (përpunohet në mënyrë të sigurt nga
+              ofruesit e pagesave)
+            </li>
             <li>Adresën tuaj për qëllime faturimi</li>
           </ul>
         </div>
       </div>
 
-   
-
       <div class="privacy-note">
         <p>
-          Kjo politikë privatësie mund të përditësohet herë pas here. Ndryshimet do të
-          publikohen në këtë faqe me datën e përditësimit të re. Ju inkurajojmë të
-          rishikoni këtë politikë periodikisht.
+          Kjo politikë privatësie mund të përditësohet herë pas here. Ndryshimet
+          do të publikohen në këtë faqe me datën e përditësimit të re. Ju
+          inkurajojmë të rishikoni këtë politikë periodikisht.
         </p>
       </div>
     </div>
@@ -212,7 +284,10 @@
               </svg>
               <span>Tik<span class="text-primary">Pro</span></span>
             </a>
-            <p>Platforma më e besueshme për rritjen e profilit tënd TikTok me likes dhe views të vërteta.</p>
+            <p>
+              Platforma më e besueshme për rritjen e profilit tënd TikTok me
+              likes dhe views të vërteta.
+            </p>
           </div>
 
           <div class="footer-links">
@@ -227,8 +302,15 @@
           <div class="footer-contact">
             <h4>Kontakt</h4>
             <a href="mailto:infotikpro@gmail.com">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
                 <polyline points="22,6 12,13 2,6" />
               </svg>
               infotikpro@gmail.com
@@ -246,17 +328,7 @@
         </div>
       </div>
     </footer>
-
+    <script src="logout-fix.js"></script>
     <script src="script.js"></script>
-
-    <style>
-      @keyframes ping {
-        75%, 100% { transform: scale(2); opacity: 0; }
-      }
-    </style>
-  <!-- Start of OpenWidget (www.openwidget.com) code -->
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="vOCAaS9biLWAFVt9kwfmg";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
   </body>
 </html>

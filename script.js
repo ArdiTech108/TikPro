@@ -1,3 +1,5 @@
+// script.js - Funksionet kryesore për index.html
+
 function initTheme() {
   const themeToggle = document.getElementById("themeToggle");
   const savedTheme = localStorage.getItem("theme");
@@ -18,22 +20,19 @@ function initTheme() {
   }
 }
 
-
+// Paketat për TikTok likes dhe views
 const likesPackages = [
+  { id: "views-1", amount: 5000, price: 4.99, popular: true },
   { id: "likes-1", amount: 100, price: 0.99, popular: false },
   { id: "likes-2", amount: 250, price: 1.99, popular: false },
   { id: "likes-3", amount: 500, price: 2.99, popular: false },
   { id: "likes-4", amount: 1000, price: 4.99, popular: true },
   { id: "likes-5", amount: 2500, price: 9.99, popular: false },
-
-
   { id: "likes-6", amount: 5000, price: 17.99, popular: false },
-    { id: "likes-7", amount:8000, price: 22.99, popular: false },
-  { id: "likes-8", amount: 10000, price: 29.99, popular: false },
-  { id: "likes-9", amount: 25000, price: 59.99, popular: false },
-  { id: "likes-10", amount: 50000, price: 99.99, popular: false },
-  { id: "likes-11", amount: 100000, price: 179.99, popular: false },
-   { id: "likes-12", amount: 500000, price: 219.99, popular: false },
+  { id: "likes-7", amount: 10000, price: 29.99, popular: false },
+  { id: "likes-8", amount: 25000, price: 59.99, popular: false },
+  { id: "likes-9", amount: 50000, price: 99.99, popular: false },
+  { id: "likes-10", amount: 100000, price: 179.99, popular: false },
 ];
 
 const viewsPackages = [
@@ -44,14 +43,10 @@ const viewsPackages = [
   { id: "views-5", amount: 10000, price: 8.99, popular: false },
   { id: "views-6", amount: 25000, price: 17.99, popular: false },
   { id: "views-7", amount: 50000, price: 29.99, popular: false },
-    { id: "views-8", amount: 75000, price: 34.99, popular: false },
-  { id: "views-9", amount: 100000, price: 49.99, popular: false },
-  { id: "views-10", amount: 250000, price: 99.99, popular: false },
-  { id: "views-11", amount: 500000, price: 169.99, popular: false }, 
-   { id: "views-12", amount: 1000000, price: 299.99, popular: false },
-  
+  { id: "views-8", amount: 100000, price: 49.99, popular: false },
+  { id: "views-9", amount: 250000, price: 99.99, popular: false },
+  { id: "views-10", amount: 500000, price: 169.99, popular: false },
 ];
-
 
 function formatNumber(num) {
   if (num >= 1000000) {
@@ -71,28 +66,18 @@ function renderPackages() {
     likesGrid.innerHTML = likesPackages
       .map(
         (pkg) => `
-            <div class="package-card likes ${
-              pkg.popular ? "popular" : ""
-            }" data-testid="card-${pkg.id}">
-                ${
-                  pkg.popular
-                    ? '<span class="popular-badge">Më i Popullarizuar</span>'
-                    : ""
-                }
-                <div class="package-amount">${formatNumber(pkg.amount)}</div>
-                <div class="package-type">likes</div>
-                <div class="package-price">€${pkg.price.toFixed(2)}</div>
-                <button class="btn ${
-                  pkg.popular ? "btn-primary" : "btn-outline"
-                } btn-full" 
-                        onclick="openPaidModal('likes', ${pkg.amount}, ${
-                          pkg.price
-                        })"
-                        data-testid="button-buy-${pkg.id}">
-                    Buy Now
-                </button>
-            </div>
-        `,
+                    <div class="package-card likes ${pkg.popular ? "popular" : ""}" data-testid="card-${pkg.id}">
+                        ${pkg.popular ? '<span class="popular-badge">Më i Popullarizuar</span>' : ""}
+                        <div class="package-amount">${formatNumber(pkg.amount)}</div>
+                        <div class="package-type">likes</div>
+                        <div class="package-price">€${pkg.price.toFixed(2)}</div>
+                        <button class="btn ${pkg.popular ? "btn-primary" : "btn-outline"} btn-full" 
+                                onclick="openPaidModal('likes', ${pkg.amount}, ${pkg.price})"
+                                data-testid="button-buy-${pkg.id}">
+                            Buy Now
+                        </button>
+                    </div>
+                `,
       )
       .join("");
   }
@@ -101,64 +86,61 @@ function renderPackages() {
     viewsGrid.innerHTML = viewsPackages
       .map(
         (pkg) => `
-            <div class="package-card views ${
-              pkg.popular ? "popular popular-views" : ""
-            }" data-testid="card-${pkg.id}">
-                ${
-                  pkg.popular
-                    ? '<span class="popular-badge">Më i Popullarizuar</span>'
-                    : ""
-                }
-                <div class="package-amount">${formatNumber(pkg.amount)}</div>
-                <div class="package-type">views</div>
-                <div class="package-price">€${pkg.price.toFixed(2)}</div>
-                <button class="btn ${
-                  pkg.popular ? "btn-secondary" : "btn-outline"
-                } btn-full" 
-                        onclick="openPaidModal('views', ${pkg.amount}, ${
-                          pkg.price
-                        })"
-                        data-testid="button-buy-${pkg.id}">
-                    Buy Now
-                </button>
-            </div>
-        `,
+                    <div class="package-card views ${pkg.popular ? "popular popular-views" : ""}" data-testid="card-${pkg.id}">
+                        ${pkg.popular ? '<span class="popular-badge">Më i Popullarizuar</span>' : ""}
+                        <div class="package-amount">${formatNumber(pkg.amount)}</div>
+                        <div class="package-type">views</div>
+                        <div class="package-price">€${pkg.price.toFixed(2)}</div>
+                        <button class="btn ${pkg.popular ? "btn-secondary" : "btn-outline"} btn-full" 
+                                onclick="openPaidModal('views', ${pkg.amount}, ${pkg.price})"
+                                data-testid="button-buy-${pkg.id}">
+                            Buy Now
+                        </button>
+                    </div>
+                `,
       )
       .join("");
   }
 }
 
+// script.js - Shto këtë funksion për mobile menu
 function initMobileMenu() {
   const menuToggle = document.getElementById("menuToggle");
   const mobileNav = document.getElementById("mobileNav");
 
   if (menuToggle && mobileNav) {
-    menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation(); // Parandalon përhapjen e eventit
       menuToggle.classList.toggle("active");
       mobileNav.classList.toggle("active");
+
+      // Parandalon scrolling kur menuja është hapur
+      if (mobileNav.classList.contains("active")) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    });
+
+    // Mbyll menu kur klikon jashtë
+    document.addEventListener("click", (e) => {
+      if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
+        menuToggle.classList.remove("active");
+        mobileNav.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+
+    // Mbyll menu kur klikon një link
+    const mobileLinks = mobileNav.querySelectorAll(".nav-link");
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        menuToggle.classList.remove("active");
+        mobileNav.classList.remove("active");
+        document.body.style.overflow = "";
+      });
     });
   }
-}
-
-function openFreeModal(type, amount) {
-  const modal = document.getElementById("freeModal");
-  const modalIcon = document.getElementById("freeModalIcon");
-  const modalTitle = document.getElementById("freeModalTitle");
-
-  document.getElementById("freePackageType").value = type;
-  document.getElementById("freePackageAmount").value = amount;
-
-  const iconSvg =
-    type === "likes"
-      ? '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'
-      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
-
-  modalIcon.innerHTML = iconSvg;
-  modalIcon.className = `modal-icon ${type}`;
-  modalTitle.textContent = `Merr ${formatNumber(amount)} ${type} Falas`;
-
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
 }
 
 function closeFreeModal() {
@@ -190,13 +172,14 @@ function submitFreeForm(event) {
     timestamp: new Date().toISOString(),
   };
 
-  console.log("Free Order:", orderData);
+  // Ruaj në localStorage
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  orders.push(orderData);
+  localStorage.setItem("orders", JSON.stringify(orders));
 
   closeFreeModal();
   showSuccessModal(
-    `Porosia juaj për ${formatNumber(
-      parseInt(amount),
-    )} ${type} falas u dërgua me sukses! Do t'ju kontaktojmë në ${email}.`,
+    `Porosia juaj për ${formatNumber(parseInt(amount))} ${type} falas u dërgua me sukses! Do t'ju kontaktojmë në ${email}.`,
   );
 }
 
@@ -263,20 +246,21 @@ function submitPaidForm(event) {
     price: parseFloat(price),
     videoLink: videoLink,
     email: email,
-    cardNumber: cardNumber.slice(-4), // Only store last 4 digits
+    cardNumber: cardNumber.slice(-4),
     address: address,
     paymentMethod: paymentMethod,
     isFree: false,
     timestamp: new Date().toISOString(),
   };
 
-  console.log("Paid Order:", orderData);
+  // Ruaj në localStorage
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  orders.push(orderData);
+  localStorage.setItem("orders", JSON.stringify(orders));
 
   closePaidModal();
   showSuccessModal(
-    `Porosia juaj për ${formatNumber(parseInt(amount))} ${type} (€${parseFloat(
-      price,
-    ).toFixed(2)}) u dërgua me sukses! Do t'ju kontaktojmë në ${email}.`,
+    `Porosia juaj për ${formatNumber(parseInt(amount))} ${type} (€${parseFloat(price).toFixed(2)}) u dërgua me sukses! Do t'ju kontaktojmë në ${email}.`,
   );
 }
 
@@ -293,52 +277,101 @@ function closeSuccessModal() {
   document.body.style.overflow = "";
 }
 
-function submitContactForm(event) {
-  event.preventDefault();
+// Counter për footer
+function initCounter() {
+  const counter = document.getElementById("counter");
+  if (!counter) return;
 
-  const name = document.getElementById("contactName").value;
-  const email = document.getElementById("contactEmail").value;
-  const message = document.getElementById("contactMessage").value;
+  const target = +counter.getAttribute("data-target");
+  const speed = 200;
 
-  const contactData = {
-    name: name,
-    email: email,
-    message: message,
-    timestamp: new Date().toISOString(),
+  const updateCount = () => {
+    const count = +counter.innerText;
+    const inc = target / speed;
+
+    if (count < target) {
+      counter.innerText = Math.ceil(count + inc);
+      setTimeout(updateCount, 10);
+    } else {
+      counter.innerText = target.toLocaleString();
+    }
   };
 
-  console.log("Contact Form:", contactData);
-
-  const form = document.getElementById("contactForm");
-  const successDiv = document.getElementById("contactSuccess");
-
-  if (form && successDiv) {
-    form.style.display = "none";
-    successDiv.style.display = "block";
-  }
+  window.onload = updateCount;
 }
 
-function resetContactForm() {
-  const form = document.getElementById("contactForm");
-  const successDiv = document.getElementById("contactSuccess");
+// Loading bar
+function initLoadingBar() {
+  window.addEventListener("load", () => {
+    const bar = document.getElementById("loading-bar");
+    if (!bar) return;
 
-  if (form && successDiv) {
-    form.reset();
-    form.style.display = "block";
-    successDiv.style.display = "none";
-  }
+    bar.style.width = "30%";
+
+    setTimeout(() => {
+      bar.style.width = "100%";
+
+      setTimeout(() => {
+        bar.style.opacity = "0";
+      }, 400);
+    }, 300);
+  });
 }
 
+// Sales popup
+function initSalesPopup() {
+  const popup = document.getElementById("salesPopup");
+  const msg = document.getElementById("salesMsg");
+
+  if (!popup || !msg) return;
+
+  const orders = [
+    { emri: "Altini", qyteti: "Prishtinë", produkti: "500 Views" },
+    { emri: "Klea", qyteti: "Tiranë", produkti: "200 Likes" },
+    { emri: "Dritoni", qyteti: "Prizren", produkti: "1000 Views" },
+    { emri: "Sara", qyteti: "Shkup", produkti: "50 Like" },
+    { emri: "Enisi", qyteti: "Gjakovë", produkti: "300 Likes" },
+  ];
+
+  function showOrder() {
+    const o = orders[Math.floor(Math.random() * orders.length)];
+    msg.innerHTML = `<b>${o.emri}</b> nga ${o.qyteti}<br>sapo bleu <b>${o.produkti}</b>!`;
+    popup.classList.add("active");
+
+    setTimeout(() => {
+      popup.classList.remove("active");
+    }, 5000);
+  }
+
+  setTimeout(showOrder, 3000);
+  setInterval(showOrder, 15000);
+}
+
+// Kur faqja të ngarkohet
+document.addEventListener("DOMContentLoaded", () => {
+  initTheme();
+  renderPackages();
+  initMobileMenu();
+  initCounter();
+  initLoadingBar();
+  initSalesPopup();
+
+  // Krijo admin default
+  if (typeof createDefaultAdmin === "function") {
+    createDefaultAdmin();
+  }
+
+  // Update header për user
+  if (typeof updateHeaderForUser === "function") {
+    updateHeaderForUser();
+  }
+});
+
+// Mbyll modalat me ESC
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     closeFreeModal();
     closePaidModal();
     closeSuccessModal();
   }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  initTheme();
-  renderPackages();
-  initMobileMenu();
 });

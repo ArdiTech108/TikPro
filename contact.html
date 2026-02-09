@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sq">
   <head>
     <meta charset="UTF-8" />
@@ -8,7 +8,11 @@
       name="description"
       content="Na kontaktoni për çdo pyetje apo ndihmë. Ekipi ynë është gjithmonë gati t'ju ndihmojë."
     />
-<link rel="icon" type="image/png" href="https://icon2.cleanpng.com/20240214/kxl/transparent-tiktok-logo-tiktok-logo-blue-and-pink-lettering-re-retro-style-tiktok-logo-evoking-1950s-1710878265139.webp" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://icon2.cleanpng.com/20240214/kxl/transparent-tiktok-logo-tiktok-logo-blue-and-pink-lettering-re-retro-style-tiktok-logo-evoking-1950s-1710878265139.webp"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,18 +20,21 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-     <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-<script>
-    Weglot.initialize({
-        api_key: 'wg_407ceb0a754d47002779caeb2a39b20a6'
-    });
-</script>
+    <script
+      type="text/javascript"
+      src="https://cdn.weglot.com/weglot.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.weglot.com/weglot.min.js"
+    ></script>
+    <script>
+      Weglot.initialize({
+        api_key: "wg_407ceb0a754d47002779caeb2a39b20a6",
+      });
+    </script>
   </head>
-<body >
-    
-
-    
+  <body>
     <header class="header" id="header">
       <div class="container header-content">
         <a href="index.html" class="logo" data-testid="link-logo">
@@ -38,23 +45,95 @@
           </svg>
           <span>Tik<span class="text-primary">Pro</span></span>
         </a>
-        <div style="display: flex; align-items: center; gap: 8px; font-family: sans-serif; font-size: 12px; color: #4ade80; background: rgba(74, 222, 128, 0.1); padding: 4px 10px; border-radius: 20px; width: fit-content; margin: 10px auto;">
-    <span style="position: relative; display: flex; h-weight: 8px; width: 8px;">
-        <span style="animate-ping: absolute; display: inline-flex; height: 100%; width: 100%; border-radius: 50%; background: #4ade80; opacity: 0.75; animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;"></span>
-        <span style="position: relative; display: inline-flex; border-radius: 50%; height: 8px; width: 8px; background: #22c55e;"></span>
-    </span>
-    <span style="text-transform: uppercase; letter-spacing: 0.5px; font-weight: bold;">SMM Servers: Operational</span>
-</div>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: sans-serif;
+            font-size: 12px;
+            color: #4ade80;
+            background: rgba(74, 222, 128, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            width: fit-content;
+            margin: 10px auto;
+          "
+        >
+          <span
+            style="position: relative; display: flex; h-weight: 8px; width: 8px"
+          >
+            <span
+              style="
+                animate-ping: absolute;
+                display: inline-flex;
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+                background: #4ade80;
+                opacity: 0.75;
+                animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+              "
+            ></span>
+            <span
+              style="
+                position: relative;
+                display: inline-flex;
+                border-radius: 50%;
+                height: 8px;
+                width: 8px;
+                background: #22c55e;
+              "
+            ></span>
+          </span>
+          <span
+            style="
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              font-weight: bold;
+            "
+            >SMM Servers: Operational</span
+          >
+        </div>
 
-<style>
-@keyframes ping {
-  75%, 100% { transform: scale(2); opacity: 0; }
-}
-</style>
+        <style>
+          @keyframes ping {
+            75%,
+            100% {
+              transform: scale(2);
+              opacity: 0;
+            }
+          }
+        </style>
         <nav class="nav-desktop" data-testid="nav-desktop">
-          <a href="index.html" class="nav-link">Kryefaqja</a>
-          <a href="contact.html" class="nav-link active">Kontakt</a>
+          <a href="index.html" class="nav-link active">Kryefaqja</a>
+          <a href="packages.html" class="nav-link">Paketa</a>
+          <a href="contact.html" class="nav-link">Kontakt</a>
           <a href="privacy.html" class="nav-link">Privatësia</a>
+
+          <!-- User Menu (do të shfaqet vetëm nëse user është logged in) -->
+          <div class="user-menu" id="userMenu" style="display: none">
+            <!-- Do të mbushët me JavaScript -->
+          </div>
+
+          <a
+            href="login.html"
+            class="nav-link admin-link"
+            title="Admin Login"
+            id="adminLink"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              style="width: 18px; height: 18px; margin-right: 5px"
+            >
+              <path
+                d="M12 2a5 5 0 0 0-5 5v2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2V7a5 5 0 0 0-5-5z"
+              />
+              <path d="M12 12h-2v2h2v-2zm0-4h-2v2h2V8z" />
+            </svg>
+            Admin
+          </a>
         </nav>
         <div class="header-actions">
           <button
@@ -102,9 +181,28 @@
         </div>
       </div>
       <nav class="nav-mobile" id="mobileNav">
-        <a href="index.html" class="nav-link">Kryefaqja</a>
-        <a href="contact.html" class="nav-link active">Kontakt</a>
+        <a href="index.html" class="nav-link active">Kryefaqja</a>
+        <a href="contact.html" class="nav-link">Kontakt</a>
+        <a href="packages.html" class="nav-link">Paketa</a>
         <a href="privacy.html" class="nav-link">Privatësia</a>
+
+        <!-- User Menu (do të shfaqet vetëm nëse user është logged in) -->
+        <div class="user-menu" id="userMenu" style="display: none">
+          <!-- Do të mbushët me JavaScript -->
+        </div>
+        <a href="login.html" class="nav-link admin-link">
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            style="width: 18px; height: 18px; margin-right: 5px"
+          >
+            <path
+              d="M12 2a5 5 0 0 0-5 5v2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2V7a5 5 0 0 0-5-5z"
+            />
+            <path d="M12 12h-2v2h2v-2zm0-4h-2v2h2V8z" />
+          </svg>
+          Admin
+        </a>
       </nav>
     </header>
 
@@ -139,8 +237,16 @@
           shpejt.
         </p>
 
-        <form action="https://formspree.io/f/mrepgdnq" method="POST" id="contactForm">
-          <input type="hidden" name="_next" value="https://tik-pro-psi.vercel.app/contact.html">
+        <form
+          action="https://formspree.io/f/mrepgdnq"
+          method="POST"
+          id="contactForm"
+        >
+          <input
+            type="hidden"
+            name="_next"
+            value="https://tik-pro-psi.vercel.app/contact.html"
+          />
           <div class="form-group">
             <label for="contactName">Emri Juaj</label>
             <div class="input-icon">
@@ -153,7 +259,13 @@
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                 <circle cx="12" cy="7" r="4" />
               </svg>
-         <input type="text" id="contactName" name="name" placeholder="Emri dhe mbiemri" required />
+              <input
+                type="text"
+                id="contactName"
+                name="name"
+                placeholder="Emri dhe mbiemri"
+                required
+              />
             </div>
           </div>
           <div class="form-group">
@@ -170,7 +282,13 @@
                 />
                 <polyline points="22,6 12,13 2,6" />
               </svg>
-          <input type="email" id="contactEmail" name="email" placeholder="email@shembull.com" required />
+              <input
+                type="email"
+                id="contactEmail"
+                name="email"
+                placeholder="email@shembull.com"
+                required
+              />
             </div>
           </div>
           <div class="form-group">
@@ -186,7 +304,12 @@
                   d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
                 />
               </svg>
-             <textarea id="contactMessage" name="message" placeholder="Shkruani mesazhin tuaj këtu..." required></textarea>
+              <textarea
+                id="contactMessage"
+                name="message"
+                placeholder="Shkruani mesazhin tuaj këtu..."
+                required
+              ></textarea>
             </div>
           </div>
           <button
@@ -313,104 +436,126 @@
         </div>
       </div>
     </footer>
- 
+
     <style>
-   
-    #salesPopup {
-        position: fixed;
-        top: 100px; 
-        right: 20px; 
-        background: #ffffff;
-        color: #333;
-        padding: 15px 20px;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        z-index: 10000;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        border-right: 5px solid #00f2ea; 
-       
-        transform: translateX(120%);
-        transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
 
-    #salesPopup.active {
-        transform: translateX(0); /
-    }
+      #salesPopup {
+          position: fixed;
+          top: 100px;
+          right: 20px;
+          background: #ffffff;
+          color: #333;
+          padding: 15px 20px;
+          border-radius: 10px;
+          box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          z-index: 10000;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          border-right: 5px solid #00f2ea;
 
-    .sales-icon {
-        background: #ff0050;
-        color: white;
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 18px;
-    }
+          transform: translateX(120%);
+          transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
 
-    .sales-text {
-        font-size: 13px;
-        line-height: 1.4;
-    }
+      #salesPopup.active {
+          transform: translateX(0); /
+      }
 
-    .sales-text b {
-        color: #000;
-    }
-</style>
+      .sales-icon {
+          background: #ff0050;
+          color: white;
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 18px;
+      }
 
-<div id="salesPopup">
-    <div class="sales-icon">🚀</div>
-    <div class="sales-text" id="salesMsg">
-        </div>
-</div>
+      .sales-text {
+          font-size: 13px;
+          line-height: 1.4;
+      }
 
-<script>
-    (function() {
-        const popup = document.getElementById('salesPopup');
-        const msg = document.getElementById('salesMsg');
+      .sales-text b {
+          color: #000;
+      }
+    </style>
+
+    <div id="salesPopup">
+      <div class="sales-icon">🚀</div>
+      <div class="sales-text" id="salesMsg"></div>
+    </div>
+
+    <script>
+      (function () {
+        const popup = document.getElementById("salesPopup");
+        const msg = document.getElementById("salesMsg");
 
         const orders = [
-            { emri: "Altini", qyteti: "Prishtinë", produkti: "500 Views" },
-            { emri: "Klea", qyteti: "Tiranë", produkti: "200 Likes" },
-            { emri: "Dritoni", qyteti: "Prizren", produkti: "1000 Views" },
-            { emri: "Sara", qyteti: "Shkup", produkti: "50 Like" },
-            { emri: "Enisi", qyteti: "Gjakovë", produkti: "300 Likes" }
+          { emri: "Altini", qyteti: "Prishtinë", produkti: "500 Views" },
+          { emri: "Klea", qyteti: "Tiranë", produkti: "200 Likes" },
+          { emri: "Dritoni", qyteti: "Prizren", produkti: "1000 Views" },
+          { emri: "Sara", qyteti: "Shkup", produkti: "50 Like" },
+          { emri: "Enisi", qyteti: "Gjakovë", produkti: "300 Likes" },
         ];
 
         function showOrder() {
-           
-            const o = orders[Math.floor(Math.random() * orders.length)];
-            
-      
-            msg.innerHTML = `<b>${o.emri}</b> nga ${o.qyteti}<br>sapo bleu <b>${o.produkti}</b>!`;
-            
-         
-            popup.classList.add('active');
-            
-         
-            setTimeout(() => {
-                popup.classList.remove('active');
-            }, 5000);
+          const o = orders[Math.floor(Math.random() * orders.length)];
+
+          msg.innerHTML = `<b>${o.emri}</b> nga ${o.qyteti}<br>sapo bleu <b>${o.produkti}</b>!`;
+
+          popup.classList.add("active");
+
+          setTimeout(() => {
+            popup.classList.remove("active");
+          }, 5000);
         }
 
-       
         setTimeout(showOrder, 3000);
 
-   
         setInterval(showOrder, 15000);
-    })();
-</script>
-  
-<!-- Start of OpenWidget (www.openwidget.com) code -->
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="vOCAaS9biLWAFVt9kwfmg";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
+      })();
+    </script>
 
+    <!-- Start of OpenWidget (www.openwidget.com) code -->
+    <script>
+      (function () {
+        if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+          window.chatbase = (...arguments) => {
+            if (!window.chatbase.q) {
+              window.chatbase.q = [];
+            }
+            window.chatbase.q.push(arguments);
+          };
+          window.chatbase = new Proxy(window.chatbase, {
+            get(target, prop) {
+              if (prop === "q") {
+                return target.q;
+              }
+              return (...args) => target(prop, ...args);
+            },
+          });
+        }
+        const onLoad = function () {
+          const script = document.createElement("script");
+          script.src = "https://www.chatbase.co/embed.min.js";
+          script.id = "vOCAaS9biLWAFVt9kwfmg";
+          script.domain = "www.chatbase.co";
+          document.body.appendChild(script);
+        };
+        if (document.readyState === "complete") {
+          onLoad();
+        } else {
+          window.addEventListener("load", onLoad);
+        }
+      })();
+    </script>
 
+    <script src="logout-fix.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

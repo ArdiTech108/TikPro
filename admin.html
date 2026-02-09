@@ -1,0 +1,1048 @@
+<!doctype html>
+<html lang="sq">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - TikPro</title>
+    <meta name="description" content="Panel Administratori - TikPro" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://icon2.cleanpng.com/20240214/kxl/transparent-tiktok-logo-tiktok-logo-blue-and-pink-lettering-re-retro-style-tiktok-logo-evoking-1950s-1710878265139.webp"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      :root {
+        --admin-bg: #f8fafc;
+        --admin-card: #ffffff;
+        --admin-border: #e2e8f0;
+        --admin-text: #1e293b;
+        --admin-muted: #64748b;
+        --admin-primary: #3b82f6;
+        --admin-primary-dark: #2563eb;
+        --admin-success: #10b981;
+        --admin-warning: #f59e0b;
+        --admin-danger: #ef4444;
+      }
+
+      .dark {
+        --admin-bg: #0f172a;
+        --admin-card: #1e293b;
+        --admin-border: #334155;
+        --admin-text: #f1f5f9;
+        --admin-muted: #94a3b8;
+        --admin-primary: #60a5fa;
+        --admin-primary-dark: #3b82f6;
+      }
+
+      body {
+        background: var(--admin-bg);
+        color: var(--admin-text);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+
+      .admin-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      .admin-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--admin-border);
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .admin-header h1 {
+        margin: 0;
+        font-size: 1.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .admin-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .stat-card {
+        background: var(--admin-card);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--admin-border);
+        text-align: center;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .stat-card h3 {
+        font-size: 0.9rem;
+        color: var(--admin-muted);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .stat-card p {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--admin-primary);
+        margin: 0;
+      }
+
+      .admin-table-container {
+        background: var(--admin-card);
+        border-radius: 12px;
+        border: 1px solid var(--admin-border);
+        overflow: hidden;
+        margin: 2rem 0;
+      }
+
+      .admin-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .admin-table th {
+        padding: 1rem;
+        text-align: left;
+        background: rgba(59, 130, 246, 0.05);
+        font-weight: 600;
+        color: var(--admin-text);
+        border-bottom: 1px solid var(--admin-border);
+        white-space: nowrap;
+      }
+
+      .admin-table td {
+        padding: 1rem;
+        border-bottom: 1px solid var(--admin-border);
+        vertical-align: middle;
+      }
+
+      .admin-table tr:hover {
+        background: rgba(59, 130, 246, 0.03);
+      }
+
+      .admin-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .status-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .status-pending {
+        background: rgba(245, 158, 11, 0.1);
+        color: #f59e0b;
+      }
+
+      .status-completed {
+        background: rgba(34, 197, 94, 0.1);
+        color: #22c55e;
+      }
+
+      .tabs-container {
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--admin-border);
+        padding-bottom: 0.5rem;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 0.5rem;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .tab {
+        padding: 0.75rem 1.5rem;
+        background: none;
+        border: none;
+        color: var(--admin-muted);
+        font-weight: 600;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        transition: all 0.2s;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .tab:hover {
+        color: var(--admin-primary);
+      }
+
+      .tab.active {
+        color: var(--admin-primary);
+        border-bottom-color: var(--admin-primary);
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .logout-btn {
+        background: var(--admin-primary);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: background 0.2s;
+      }
+
+      .logout-btn:hover {
+        background: var(--admin-primary-dark);
+      }
+
+      .search-container {
+        margin-bottom: 1.5rem;
+      }
+
+      .search-bar {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--admin-border);
+        border-radius: 8px;
+        background: var(--admin-card);
+        color: var(--admin-text);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.95rem;
+      }
+
+      .search-bar:focus {
+        outline: none;
+        border-color: var(--admin-primary);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      .tab-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .no-data {
+        text-align: center;
+        padding: 3rem;
+        color: var(--admin-muted);
+      }
+
+      .no-data i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        opacity: 0.5;
+      }
+
+      /* ========== RESPONSIVE DESIGN ========== */
+      @media (max-width: 1024px) {
+        .admin-container {
+          max-width: 95%;
+          margin: 1.5rem auto;
+          padding: 0 0.75rem;
+        }
+
+        .admin-table {
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+        }
+
+        .admin-table th,
+        .admin-table td {
+          padding: 0.75rem 0.5rem;
+          font-size: 0.875rem;
+        }
+
+        .stat-card {
+          padding: 1rem;
+        }
+
+        .stat-card p {
+          font-size: 1.5rem;
+        }
+
+        .tabs {
+          gap: 0.25rem;
+        }
+
+        .tab {
+          padding: 0.5rem 1rem;
+          font-size: 0.875rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .admin-container {
+          margin: 1rem auto;
+          padding: 0 0.5rem;
+        }
+
+        .admin-header {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 1rem;
+          text-align: center;
+        }
+
+        .admin-header h1 {
+          font-size: 1.5rem;
+          justify-content: center;
+        }
+
+        .logout-btn {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .admin-stats {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.75rem;
+        }
+
+        .stat-card {
+          padding: 0.75rem;
+        }
+
+        .stat-card h3 {
+          font-size: 0.75rem;
+        }
+
+        .stat-card p {
+          font-size: 1.25rem;
+        }
+
+        .tabs {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          padding-bottom: 5px;
+        }
+
+        .tabs::-webkit-scrollbar {
+          display: none;
+        }
+
+        .tab {
+          padding: 0.5rem 0.75rem;
+          font-size: 0.8rem;
+          flex-shrink: 0;
+        }
+
+        .search-bar {
+          padding: 0.75rem;
+          font-size: 0.9rem;
+        }
+
+        .tab-title {
+          font-size: 1.25rem;
+        }
+
+        /* Mobile table view */
+        .admin-table-container {
+          border: none;
+          background: transparent;
+        }
+
+        .admin-table {
+          display: flex;
+          flex-direction: column;
+          overflow: visible;
+          white-space: normal;
+        }
+
+        .admin-table thead {
+          display: none;
+        }
+
+        .admin-table tbody {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .admin-table tr {
+          display: flex;
+          flex-direction: column;
+          background: var(--admin-card);
+          border: 1px solid var(--admin-border);
+          border-radius: 8px;
+          padding: 0;
+          margin: 0;
+        }
+
+        .admin-table td {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.75rem;
+          border-bottom: 1px solid var(--admin-border);
+          text-align: right;
+        }
+
+        .admin-table td:before {
+          content: attr(data-label);
+          font-weight: 600;
+          color: var(--admin-muted);
+          margin-right: 1rem;
+          text-align: left;
+          flex-shrink: 0;
+        }
+
+        .admin-table td:last-child {
+          border-bottom: none;
+        }
+
+        .admin-table tr:hover {
+          background: var(--admin-card);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .admin-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .admin-header h1 {
+          font-size: 1.25rem;
+        }
+
+        .tab {
+          padding: 0.4rem 0.6rem;
+          font-size: 0.75rem;
+        }
+
+        .stat-card p {
+          font-size: 1.1rem;
+        }
+
+        .logout-btn {
+          padding: 0.6rem;
+          font-size: 0.9rem;
+        }
+
+        .admin-table td {
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+        }
+
+        .admin-table td:before {
+          margin-right: 0;
+          margin-bottom: 0.25rem;
+        }
+      }
+
+      /* Dark mode improvements */
+      .dark .stat-card {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .dark .admin-table th {
+        background: rgba(96, 165, 250, 0.05);
+      }
+
+      .dark .admin-table tr:hover {
+        background: rgba(96, 165, 250, 0.03);
+      }
+
+      /* Loading state */
+      .loading {
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .tab-content.active {
+        animation: fadeIn 0.3s ease-out;
+      }
+    </style>
+  </head>
+  <body class="body2">
+    <div class="admin-container">
+      <div class="admin-header">
+        <h1><i class="fas fa-crown"></i> Admin Panel - TikPro</h1>
+        <button class="logout-btn" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+          Dil
+        </button>
+      </div>
+
+      <!-- Stats -->
+      <div class="admin-stats" id="statsContainer">
+        <!-- Statistikat do të ngarkohen këtu -->
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs-container">
+        <div class="tabs">
+          <button class="tab active" onclick="showTab('orders')">
+            <i class="fas fa-box"></i>
+            Porositë
+          </button>
+          <button class="tab" onclick="showTab('users')">
+            <i class="fas fa-users"></i>
+            Përdoruesit
+          </button>
+          <button class="tab" onclick="showTab('revenue')">
+            <i class="fas fa-chart-line"></i>
+            Fitimet
+          </button>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-bar"
+          id="searchInput"
+          placeholder="🔍 Kërko porosi, përdorues ose email..."
+          onkeyup="filterTable()"
+        />
+      </div>
+
+      <!-- Orders Tab -->
+      <div id="ordersTab" class="tab-content active">
+        <h2 class="tab-title"><i class="fas fa-box"></i> Porositë e Fundit</h2>
+        <div class="admin-table-container">
+          <table class="admin-table" id="ordersTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Përdoruesi</th>
+                <th>Shërbimi</th>
+                <th>Sasia</th>
+                <th>Çmimi</th>
+                <th>Data</th>
+                <th>Statusi</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTableBody">
+              <!-- Porositë do të ngarkohen këtu -->
+            </tbody>
+          </table>
+          <div id="noOrders" class="no-data" style="display: none">
+            <i class="fas fa-inbox"></i>
+            <h3>Nuk ka porosi</h3>
+            <p>Asnjë porosi nuk është regjistruar akoma.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Users Tab -->
+      <div id="usersTab" class="tab-content">
+        <h2 class="tab-title"><i class="fas fa-users"></i> Përdoruesit</h2>
+        <div class="admin-table-container">
+          <table class="admin-table" id="usersTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Emri</th>
+                <th>Email</th>
+                <th>Roli</th>
+                <th>Data e Regjistrimit</th>
+                <th>Porositë</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody">
+              <!-- Përdoruesit do të ngarkohen këtu -->
+            </tbody>
+          </table>
+          <div id="noUsers" class="no-data" style="display: none">
+            <i class="fas fa-user-slash"></i>
+            <h3>Nuk ka përdorues</h3>
+            <p>Asnjë përdorues nuk është regjistruar akoma.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Revenue Tab -->
+      <div id="revenueTab" class="tab-content">
+        <h2 class="tab-title">
+          <i class="fas fa-chart-line"></i> Statistikat e Fitimit
+        </h2>
+        <div class="admin-stats" id="revenueStats">
+          <!-- Statistikat e fitimit do të ngarkohen këtu -->
+        </div>
+
+        <h3
+          style="
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          "
+        >
+          <i class="fas fa-calendar-alt"></i>
+          Fitimet sipas Ditës (7 ditët e fundit)
+        </h3>
+        <div class="admin-table-container">
+          <table class="admin-table" id="revenueTable">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Porositë</th>
+                <th>Fitimi Total</th>
+                <th>Mesatarja</th>
+              </tr>
+            </thead>
+            <tbody id="revenueTableBody">
+              <!-- Fitimet do të ngarkohen këtu -->
+            </tbody>
+          </table>
+          <div id="noRevenue" class="no-data" style="display: none">
+            <i class="fas fa-chart-bar"></i>
+            <h3>Nuk ka të dhëna</h3>
+            <p>Nuk ka të dhëna për fitimet akoma.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Kontrollo nëse përdoruesi është admin
+      document.addEventListener("DOMContentLoaded", () => {
+        const currentUser = JSON.parse(
+          localStorage.getItem("tikproCurrentUser"),
+        );
+
+        if (!currentUser || currentUser.role !== "admin") {
+          alert("❌ Qasje e ndaluar! Vetëm administratorët mund të hyjnë.");
+          window.location.href = "login.html";
+          return;
+        }
+
+        // Ngarko të dhënat
+        loadAdminData();
+
+        // Inicializo theme
+        initTheme();
+
+        // Refresh çdo 30 sekonda
+        setInterval(loadAdminData, 30000);
+      });
+
+      function initTheme() {
+        const savedTheme = localStorage.getItem("theme");
+        if (
+          savedTheme === "dark" ||
+          (!savedTheme &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
+        }
+      }
+
+      function loadAdminData() {
+        loadStats();
+        loadOrders();
+        loadUsers();
+        loadRevenueStats();
+      }
+
+      function loadStats() {
+        try {
+          const orders = JSON.parse(localStorage.getItem("tikproOrders")) || [];
+          const users = JSON.parse(localStorage.getItem("tikproUsers")) || [];
+
+          // Llogarit totalin
+          const totalRevenue = orders.reduce(
+            (sum, order) => sum + (parseFloat(order.price) || 0),
+            0,
+          );
+
+          const pendingOrders = orders.filter(
+            (o) => o.status === "pending",
+          ).length;
+
+          const completedOrders = orders.filter(
+            (o) => o.status === "completed",
+          ).length;
+
+          document.getElementById("statsContainer").innerHTML = `
+            <div class="stat-card">
+              <h3>Total Përdorues</h3>
+              <p>${users.length}</p>
+            </div>
+            <div class="stat-card">
+              <h3>Total Porosi</h3>
+              <p>${orders.length}</p>
+            </div>
+            <div class="stat-card">
+              <h3>Fitimi Total</h3>
+              <p>€${totalRevenue.toFixed(2)}</p>
+            </div>
+            <div class="stat-card">
+              <h3>Porosi Aktive</h3>
+              <p>${pendingOrders}</p>
+            </div>
+          `;
+        } catch (error) {
+          console.error("Error loading stats:", error);
+        }
+      }
+
+      function loadOrders() {
+        try {
+          const orders = JSON.parse(localStorage.getItem("tikproOrders")) || [];
+          const users = JSON.parse(localStorage.getItem("tikproUsers")) || [];
+
+          // Rendit nga më e reja
+          orders.sort(
+            (a, b) =>
+              new Date(b.date || b.timestamp) - new Date(a.date || a.timestamp),
+          );
+
+          const tbody = document.getElementById("ordersTableBody");
+
+          if (orders.length === 0) {
+            document.getElementById("noOrders").style.display = "block";
+            tbody.innerHTML = "";
+            return;
+          }
+
+          document.getElementById("noOrders").style.display = "none";
+
+          tbody.innerHTML = orders
+            .map((order) => {
+              // Gjej përdoruesin
+              let userName = "Unknown";
+              let userEmail = order.email || "N/A";
+
+              if (order.email) {
+                const user = users.find((u) => u.email === order.email);
+                if (user) {
+                  userName = user.name || user.username;
+                  userEmail = user.email;
+                }
+              }
+
+              // Format data
+              const orderDate = order.date || order.timestamp;
+              const formattedDate = orderDate
+                ? new Date(orderDate).toLocaleDateString("sq-AL", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })
+                : "N/A";
+
+              // Shërbimi dhe sasia
+              const type = order.type || "likes";
+              const serviceName =
+                {
+                  followers: "Ndjekës",
+                  views: "Shikime",
+                  likes: "Pëlqime",
+                }[type] || type;
+
+              const amount = order.amount || "N/A";
+
+              // Statusi
+              const status = order.status || "pending";
+              const statusClass =
+                status === "completed" ? "status-completed" : "status-pending";
+              const statusText =
+                status === "completed" ? "Përfunduar" : "Në Pritje";
+
+              return `
+                <tr>
+                  <td data-label="ID">#${order.id || "N/A"}</td>
+                  <td data-label="Përdoruesi">${userName}</td>
+                  <td data-label="Shërbimi">${serviceName}</td>
+                  <td data-label="Sasia">${amount}</td>
+                  <td data-label="Çmimi">€${(parseFloat(order.price) || 0).toFixed(2)}</td>
+                  <td data-label="Data">${formattedDate}</td>
+                  <td data-label="Statusi"><span class="status-badge ${statusClass}">${statusText}</span></td>
+                  <td data-label="Email">${userEmail}</td>
+                </tr>
+              `;
+            })
+            .join("");
+        } catch (error) {
+          console.error("Error loading orders:", error);
+          document.getElementById("ordersTableBody").innerHTML = `
+            <tr>
+              <td colspan="8" style="text-align: center; color: var(--admin-danger); padding: 2rem;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <br>Gabim në ngarkimin e të dhënave
+              </td>
+            </tr>
+          `;
+        }
+      }
+
+      function loadUsers() {
+        try {
+          const users = JSON.parse(localStorage.getItem("tikproUsers")) || [];
+          const orders = JSON.parse(localStorage.getItem("tikproOrders")) || [];
+
+          // Llogarit numrin e porosive për çdo përdorues
+          const userOrderCounts = {};
+          orders.forEach((order) => {
+            if (order.email) {
+              userOrderCounts[order.email] =
+                (userOrderCounts[order.email] || 0) + 1;
+            }
+          });
+
+          const tbody = document.getElementById("usersTableBody");
+
+          if (users.length === 0) {
+            document.getElementById("noUsers").style.display = "block";
+            tbody.innerHTML = "";
+            return;
+          }
+
+          document.getElementById("noUsers").style.display = "none";
+
+          tbody.innerHTML = users
+            .map((user) => {
+              const orderCount = userOrderCounts[user.email] || 0;
+              const roleBadge =
+                user.role === "admin"
+                  ? '<span class="status-badge" style="background: rgba(255, 215, 0, 0.1); color: #ffd700;">👑 Admin</span>'
+                  : '<span class="status-badge" style="background: rgba(59, 130, 246, 0.1); color: var(--admin-primary);">👤 User</span>';
+
+              const createdAt = user.createdAt
+                ? new Date(user.createdAt).toLocaleDateString("sq-AL", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                  })
+                : "N/A";
+
+              return `
+                <tr>
+                  <td data-label="ID">${user.id}</td>
+                  <td data-label="Emri">${user.name || user.username}</td>
+                  <td data-label="Email">${user.email}</td>
+                  <td data-label="Roli">${roleBadge}</td>
+                  <td data-label="Data e Regjistrimit">${createdAt}</td>
+                  <td data-label="Porositë">${orderCount}</td>
+                </tr>
+              `;
+            })
+            .join("");
+        } catch (error) {
+          console.error("Error loading users:", error);
+        }
+      }
+
+      function loadRevenueStats() {
+        try {
+          const orders = JSON.parse(localStorage.getItem("tikproOrders")) || [];
+
+          // Grupo sipas datës
+          const revenueByDate = {};
+          orders.forEach((order) => {
+            const date = order.date || order.timestamp;
+            if (date) {
+              const day = new Date(date).toLocaleDateString("sq-AL");
+              if (!revenueByDate[day]) {
+                revenueByDate[day] = {
+                  count: 0,
+                  total: 0,
+                };
+              }
+              revenueByDate[day].count++;
+              revenueByDate[day].total += parseFloat(order.price) || 0;
+            }
+          });
+
+          // Shfaq statistikat e fitimit
+          const days = Object.keys(revenueByDate)
+            .sort((a, b) => new Date(b) - new Date(a))
+            .slice(0, 7); // 7 ditët e fundit
+
+          const revenueTableBody = document.getElementById("revenueTableBody");
+
+          if (days.length === 0) {
+            document.getElementById("noRevenue").style.display = "block";
+            revenueTableBody.innerHTML = "";
+          } else {
+            document.getElementById("noRevenue").style.display = "none";
+            revenueTableBody.innerHTML = days
+              .map((day) => {
+                const data = revenueByDate[day];
+                const average = data.count > 0 ? data.total / data.count : 0;
+
+                return `
+                  <tr>
+                    <td data-label="Data">${day}</td>
+                    <td data-label="Porositë">${data.count}</td>
+                    <td data-label="Fitimi Total">€${data.total.toFixed(2)}</td>
+                    <td data-label="Mesatarja">€${average.toFixed(2)}</td>
+                  </tr>
+                `;
+              })
+              .join("");
+          }
+
+          // Statistikat e përmbledhura
+          const totalRevenue = orders.reduce(
+            (sum, order) => sum + (parseFloat(order.price) || 0),
+            0,
+          );
+          const avgRevenue =
+            orders.length > 0 ? totalRevenue / orders.length : 0;
+
+          document.getElementById("revenueStats").innerHTML = `
+            <div class="stat-card">
+              <h3>Fitimi Total</h3>
+              <p>€${totalRevenue.toFixed(2)}</p>
+            </div>
+            <div class="stat-card">
+              <h3>Porosi Total</h3>
+              <p>${orders.length}</p>
+            </div>
+            <div class="stat-card">
+              <h3>Fitim Mesatar</h3>
+              <p>€${avgRevenue.toFixed(2)}</p>
+            </div>
+            <div class="stat-card">
+              <h3>Ditët e Fundit</h3>
+              <p>${days.length}</p>
+            </div>
+          `;
+        } catch (error) {
+          console.error("Error loading revenue stats:", error);
+        }
+      }
+
+      function showTab(tabName) {
+        // Hide all tabs
+        document.querySelectorAll(".tab-content").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Remove active class from all tabs
+        document.querySelectorAll(".tab").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Show selected tab
+        document.getElementById(tabName + "Tab").classList.add("active");
+
+        // Add active class to clicked tab
+        event.target.classList.add("active");
+
+        // Reset search
+        document.getElementById("searchInput").value = "";
+        filterTable();
+      }
+
+      function filterTable() {
+        const searchTerm = document
+          .getElementById("searchInput")
+          .value.toLowerCase()
+          .trim();
+
+        const activeTab = document.querySelector(".tab-content.active").id;
+
+        if (!searchTerm) {
+          // Show all rows if search is empty
+          const allRows = document.querySelectorAll(
+            "#" + activeTab + " .admin-table tbody tr",
+          );
+          allRows.forEach((row) => (row.style.display = ""));
+          return;
+        }
+
+        let selector;
+        if (activeTab === "ordersTab") {
+          selector = "#ordersTable tbody tr";
+        } else if (activeTab === "usersTab") {
+          selector = "#usersTable tbody tr";
+        } else if (activeTab === "revenueTab") {
+          selector = "#revenueTable tbody tr";
+        } else {
+          return;
+        }
+
+        const rows = document.querySelectorAll(selector);
+
+        rows.forEach((row) => {
+          const text = row.textContent.toLowerCase();
+          row.style.display = text.includes(searchTerm) ? "" : "none";
+        });
+      }
+
+      function logout() {
+        if (confirm("Jeni të sigurt që doni të dilni nga admin panel?")) {
+          localStorage.removeItem("tikproCurrentUser");
+          localStorage.removeItem("tikproRemember");
+          window.location.href = "login.html";
+        }
+      }
+
+      // Make functions available globally
+      window.showTab = showTab;
+      window.filterTable = filterTable;
+      window.logout = logout;
+      window.loadAdminData = loadAdminData;
+    </script>
+  </body>
+</html>
