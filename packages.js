@@ -1,6 +1,3 @@
-// packages.js - Version i thjeshtë pa login/register
-
-// Të gjitha paketat (90 total: 3 platforma × 3 shërbime × 10 paketa)
 const allPackages = {
   tiktok: {
     followers: [
@@ -18,32 +15,33 @@ const allPackages = {
       { amount: 500000, price: 3999.99, special: true }, // Speciale 2
     ],
     views: [
-      { amount: 1000, price: 0.99 },
-      { amount: 2500, price: 2.49 },
-      { amount: 5000, price: 3.99 },
-      { amount: 10000, price: 6.99 },
-      { amount: 25000, price: 14.99 },
-      { amount: 50000, price: 27.99 },
-      { amount: 100000, price: 49.99 },
-      { amount: 250000, price: 119.99 },
-      { amount: 500000, price: 229.99 },
-      { amount: 1000000, price: 429.99 },
-      { amount: 5000000, price: 1999.99, special: true }, // Speciale 1
-      { amount: 10000000, price: 3499.99, special: true }, // Speciale 2
+      
+      {  amount: 500, price: 0.99, popular: false },
+  {  amount: 1000, price: 1.49, popular: false },
+  {  amount: 2500, price: 2.99, popular: false },
+  {  amount: 5000, price: 4.99, popular: true },
+  {  amount: 10000, price: 8.99, popular: false },
+  { amount: 25000, price: 17.99, popular: false },
+  {  amount: 50000, price: 29.99, popular: false },
+  {  amount: 100000, price: 49.99, popular: false },
+  {  amount: 250000, price: 99.99, popular: false },
+  {  amount: 500000, price: 169.99, popular: false },
+      { amount: 5000000, price: 699.99, special: true }, // Speciale 1
+      { amount: 10000000, price: 999.99, special: true }, // Speciale 2
     ],
     likes: [
-      { amount: 100, price: 0.99 },
-      { amount: 250, price: 2.49 },
-      { amount: 500, price: 3.99 },
-      { amount: 1000, price: 6.99 },
-      { amount: 2500, price: 14.99 },
-      { amount: 5000, price: 27.99 },
-      { amount: 10000, price: 49.99 },
-      { amount: 25000, price: 119.99 },
-      { amount: 50000, price: 229.99 },
-      { amount: 100000, price: 429.99 },
-      { amount: 250000, price: 999.99, special: true }, // Speciale 1
-      { amount: 500000, price: 1799.99, special: true }, // Speciale 2
+      { amount: 100, price: 0.99, popular: false },
+      { amount: 250, price: 1.99, popular: false },
+      { amount: 500, price: 2.99, popular: false },
+      { amount: 1000, price: 4.99, popular: true },
+      { amount: 2500, price: 9.99, popular: false },
+      { amount: 5000, price: 17.99, popular: false },
+      { amount: 10000, price: 29.99, popular: false },
+      { amount: 25000, price: 59.99, popular: false },
+      { amount: 50000, price: 99.99, popular: false },
+      { amount: 100000, price: 179.99, popular: false },
+      { amount: 250000, price: 344.99, special: true }, // Speciale 1
+      { amount: 500000, price: 599.99, special: true }, // Speciale 2
     ],
   },
   instagram: {
@@ -135,11 +133,10 @@ const allPackages = {
     ],
   },
 };
-// Variablat globale
+
 let currentPlatform = "tiktok";
 let currentService = "followers";
 
-// Formatimi i numrave
 function formatNumber(num) {
   if (num >= 1000000) {
     return (num / 1000000).toFixed(1) + "M";
@@ -150,7 +147,6 @@ function formatNumber(num) {
   return num.toString();
 }
 
-// Emri i shërbimit në shqip
 function getServiceName(service) {
   const names = {
     followers: "followers",
@@ -160,14 +156,11 @@ function getServiceName(service) {
   return names[service] || service;
 }
 
-// Klasa e butonit sipas indeksit
 function getButtonClass(index) {
   const classes = ["btn-primary", "btn-secondary", "btn-outline"];
   return classes[index % 3];
 }
 
-// Shfaq paketat
-// Shfaq paketat me badge për ato speciale
 function renderPackages() {
   const container = document.getElementById("packagesContainer");
   if (!container) return;
@@ -176,17 +169,15 @@ function renderPackages() {
 
   container.innerHTML = packages
     .map((pkg, index) => {
-      // Kontrollo nëse është paketë speciale
-      const isSpecial = pkg.special || index >= 10; // 2 të fundit janë speciale
+      const isSpecial = pkg.special || index >= 10;
       const specialClass = isSpecial ? "special-package" : "";
       const badge = isSpecial
         ? '<span class="package-badge">🔥 Special</span>'
         : "";
 
-      // Përcakto klasën e butonit
-      let buttonClass = "btn-primary"; // Të gjitha me të njëjtën ngjyrë
+      let buttonClass = "btn-primary";
       if (isSpecial) {
-        buttonClass = "btn-special"; // Për paketat speciale
+        buttonClass = "btn-special";
       }
 
       return `
@@ -204,21 +195,18 @@ function renderPackages() {
     })
     .join("");
 }
-// Hap modalën e blerjes
+
 function openPurchaseModal(platform, service, amount, price) {
-  // Përdor modalën paidModal nga index.html
   const modal = document.getElementById("paidModal");
   const modalIcon = document.getElementById("paidModalIcon");
   const modalTitle = document.getElementById("paidModalTitle");
   const modalSubtitle = document.getElementById("paidModalSubtitle");
   const totalPrice = document.getElementById("totalPrice");
 
-  // Vendos vlerat
   document.getElementById("paidPackageType").value = service;
   document.getElementById("paidPackageAmount").value = amount;
   document.getElementById("paidPackagePrice").value = price;
 
-  // Përcakto ikonën sipas shërbimit
   let iconSvg = "";
   let serviceName = getServiceName(service);
   let platformName = platform.charAt(0).toUpperCase() + platform.slice(1);
@@ -234,14 +222,12 @@ function openPurchaseModal(platform, service, amount, price) {
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>';
   }
 
-  // Përditëso UI
   modalIcon.innerHTML = iconSvg;
   modalIcon.className = `modal-icon ${service}`;
   modalTitle.textContent = `Bli ${formatNumber(amount)} ${serviceName}`;
   modalSubtitle.textContent = `Platforma: ${platformName} | Çmimi: €${price.toFixed(2)}`;
   totalPrice.textContent = `€${price.toFixed(2)}`;
 
-  // Vendos placeholder sipas platformës
   const linkInput = document.getElementById("paidVideoLink");
   if (platform === "tiktok") {
     linkInput.placeholder = "https://tiktok.com/@username/video/123456789";
@@ -251,12 +237,10 @@ function openPurchaseModal(platform, service, amount, price) {
     linkInput.placeholder = "https://facebook.com/username/posts/123456789";
   }
 
-  // Shfaq modalën
   modal.classList.add("active");
   document.body.style.overflow = "hidden";
 }
 
-// Dërgo formularin e blerjes
 function submitPaidForm(event) {
   event.preventDefault();
 
@@ -271,7 +255,6 @@ function submitPaidForm(event) {
     'input[name="paymentMethod"]:checked',
   ).value;
 
-  // Validimi
   if (!videoLink.includes(".com")) {
     alert("Ju lutem vendosni një link të vlefshëm!");
     return;
@@ -282,7 +265,6 @@ function submitPaidForm(event) {
     return;
   }
 
-  // Krijo porosinë
   const order = {
     id: Date.now(),
     service: service,
@@ -297,21 +279,17 @@ function submitPaidForm(event) {
     status: "pending",
   };
 
-  // Ruaj në localStorage
   const orders = JSON.parse(localStorage.getItem("orders")) || [];
   orders.push(order);
   localStorage.setItem("orders", JSON.stringify(orders));
 
-  // Mbylle modalën
   closePaidModal();
 
-  // Shfaq sukses
   showSuccessMessage(
     `Porosia juaj për ${formatNumber(parseInt(amount))} ${getServiceName(service)} u dërgua me sukses! Do t'ju kontaktojmë në ${email}.`,
   );
 }
 
-// Dërgo formularin falas
 function submitFreeForm(event) {
   event.preventDefault();
 
@@ -342,7 +320,6 @@ function submitFreeForm(event) {
   );
 }
 
-// Funksionet për të mbyllur modalat
 function closePaidModal() {
   const modal = document.getElementById("paidModal");
   modal.classList.remove("active");
@@ -363,7 +340,6 @@ function closeSuccessModal() {
   document.body.style.overflow = "";
 }
 
-// Shfaq mesazhin e suksesit
 function showSuccessMessage(message) {
   const modal = document.getElementById("successModal");
   document.getElementById("successMessage").textContent = message;
@@ -371,7 +347,6 @@ function showSuccessMessage(message) {
   document.body.style.overflow = "hidden";
 }
 
-// Inicializimi i tabs
 function initPlatformTabs() {
   const platformTabs = document.querySelectorAll(".platform-tab");
   const serviceTabs = document.querySelectorAll(".service-tab");
@@ -395,9 +370,6 @@ function initPlatformTabs() {
   });
 }
 
-// Dark mode theme toggle
-
-// Mobile menu toggle
 function initMobileMenu() {
   const menuToggle = document.getElementById("menuToggle");
   const mobileNav = document.getElementById("mobileNav");
@@ -407,7 +379,6 @@ function initMobileMenu() {
     menuToggle.classList.toggle("active");
   });
 
-  // Mbyll menu në klikim
   mobileNav.querySelectorAll(".nav-link").forEach((link) => {
     link.addEventListener("click", () => {
       mobileNav.classList.remove("active");
@@ -416,17 +387,14 @@ function initMobileMenu() {
   });
 }
 
-// Kur faqja të ngarkohet
 document.addEventListener("DOMContentLoaded", () => {
   renderPackages();
   initPlatformTabs();
 
-  // Inicializo theme toggle
   if (typeof initTheme === "function") {
     initTheme();
   }
 
-  // Inicializo mobile menu
   if (typeof initMobileMenu === "function") {
     initMobileMenu();
   }

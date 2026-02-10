@@ -1,11 +1,9 @@
-// database.js - SIMPLIFIED VERSION
 class TikProDatabase {
   constructor() {
     this.initDatabase();
   }
 
   initDatabase() {
-    // Përdoruesit - vetëm një array në localStorage
     if (!localStorage.getItem("tikproUsers")) {
       const defaultUsers = [
         {
@@ -30,13 +28,11 @@ class TikProDatabase {
       localStorage.setItem("tikproUsers", JSON.stringify(defaultUsers));
     }
 
-    // Porositë
     if (!localStorage.getItem("tikproOrders")) {
       localStorage.setItem("tikproOrders", JSON.stringify([]));
     }
   }
 
-  // ========== USER OPERATIONS ==========
   getUsers() {
     return JSON.parse(localStorage.getItem("tikproUsers")) || [];
   }
@@ -69,7 +65,6 @@ class TikProDatabase {
     return newUser;
   }
 
-  // ========== ORDER OPERATIONS ==========
   getOrders() {
     return JSON.parse(localStorage.getItem("tikproOrders")) || [];
   }
@@ -92,12 +87,10 @@ class TikProDatabase {
     return newOrder;
   }
 
-  // ========== AUTH OPERATIONS ==========
   login(identifier, password) {
     const user = this.findUserByUsernameOrEmail(identifier);
 
     if (user && user.password === password) {
-      // Update last login
       const users = this.getUsers();
       const userIndex = users.findIndex((u) => u.id === user.id);
       if (userIndex !== -1) {
@@ -111,5 +104,4 @@ class TikProDatabase {
   }
 }
 
-// Krijo instancë globale
 const db = new TikProDatabase();

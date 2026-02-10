@@ -1,8 +1,6 @@
-// auth.js - SIMPLIFIED VERSION
 (function () {
   "use strict";
 
-  // ========== AUTH FUNCTIONS ==========
   function checkAuth() {
     try {
       const currentUser = getCurrentUser();
@@ -14,19 +12,16 @@
         currentPath === "/" ||
         currentPath === "";
 
-      // Nëse është në faqen kryesore dhe nuk ka user, ridrejto në login
       if (isIndexPage && !currentUser) {
         window.location.href = "login.html";
         return false;
       }
 
-      // Nëse është në login/register dhe ka user, ridrejto në dashboard
       if ((isLoginPage || isRegisterPage) && currentUser) {
         window.location.href = "index.html";
         return false;
       }
 
-      // Për faqet e mbrojtura (p.sh. admin)
       const isProtectedPage = currentPath.includes("admin.html");
       if (isProtectedPage && (!currentUser || currentUser.role !== "admin")) {
         alert("Vetëm administratorët mund të hyjnë këtu!");
@@ -37,7 +32,7 @@
       return true;
     } catch (error) {
       console.error("Auth error:", error);
-      return true; // Mos bëj redirect në rast errori
+      return true;
     }
   }
 
@@ -59,12 +54,9 @@
     window.location.href = "login.html";
   }
 
-  // ========== INITIALIZATION ==========
   document.addEventListener("DOMContentLoaded", function () {
-    // Check auth on page load
     checkAuth();
 
-    // Add logout functionality to any logout buttons
     const logoutButtons = document.querySelectorAll("[data-logout]");
     logoutButtons.forEach((btn) => {
       btn.addEventListener("click", function (e) {
@@ -75,7 +67,6 @@
       });
     });
 
-    // Display current user if available
     const user = getCurrentUser();
     if (user) {
       const userElements = document.querySelectorAll("[data-user-name]");
@@ -85,7 +76,6 @@
     }
   });
 
-  // ========== EXPORT FUNCTIONS ==========
   window.Auth = {
     checkAuth,
     getCurrentUser,

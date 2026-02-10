@@ -1,5 +1,3 @@
-// script.js - Funksionet kryesore për index.html
-
 function initTheme() {
   const themeToggle = document.getElementById("themeToggle");
   const savedTheme = localStorage.getItem("theme");
@@ -20,9 +18,7 @@ function initTheme() {
   }
 }
 
-// Paketat për TikTok likes dhe views
 const likesPackages = [
-  { id: "views-1", amount: 5000, price: 4.99, popular: true },
   { id: "likes-1", amount: 100, price: 0.99, popular: false },
   { id: "likes-2", amount: 250, price: 1.99, popular: false },
   { id: "likes-3", amount: 500, price: 2.99, popular: false },
@@ -103,18 +99,16 @@ function renderPackages() {
   }
 }
 
-// script.js - Shto këtë funksion për mobile menu
 function initMobileMenu() {
   const menuToggle = document.getElementById("menuToggle");
   const mobileNav = document.getElementById("mobileNav");
 
   if (menuToggle && mobileNav) {
     menuToggle.addEventListener("click", (e) => {
-      e.stopPropagation(); // Parandalon përhapjen e eventit
+      e.stopPropagation();
       menuToggle.classList.toggle("active");
       mobileNav.classList.toggle("active");
 
-      // Parandalon scrolling kur menuja është hapur
       if (mobileNav.classList.contains("active")) {
         document.body.style.overflow = "hidden";
       } else {
@@ -122,7 +116,6 @@ function initMobileMenu() {
       }
     });
 
-    // Mbyll menu kur klikon jashtë
     document.addEventListener("click", (e) => {
       if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
         menuToggle.classList.remove("active");
@@ -131,7 +124,6 @@ function initMobileMenu() {
       }
     });
 
-    // Mbyll menu kur klikon një link
     const mobileLinks = mobileNav.querySelectorAll(".nav-link");
     mobileLinks.forEach((link) => {
       link.addEventListener("click", () => {
@@ -172,7 +164,6 @@ function submitFreeForm(event) {
     timestamp: new Date().toISOString(),
   };
 
-  // Ruaj në localStorage
   const orders = JSON.parse(localStorage.getItem("orders")) || [];
   orders.push(orderData);
   localStorage.setItem("orders", JSON.stringify(orders));
@@ -277,7 +268,6 @@ function closeSuccessModal() {
   document.body.style.overflow = "";
 }
 
-// Counter për footer
 function initCounter() {
   const counter = document.getElementById("counter");
   if (!counter) return;
@@ -300,7 +290,6 @@ function initCounter() {
   window.onload = updateCount;
 }
 
-// Loading bar
 function initLoadingBar() {
   window.addEventListener("load", () => {
     const bar = document.getElementById("loading-bar");
@@ -318,7 +307,6 @@ function initLoadingBar() {
   });
 }
 
-// Sales popup
 function initSalesPopup() {
   const popup = document.getElementById("salesPopup");
   const msg = document.getElementById("salesMsg");
@@ -347,7 +335,6 @@ function initSalesPopup() {
   setInterval(showOrder, 15000);
 }
 
-// Kur faqja të ngarkohet
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   renderPackages();
@@ -356,18 +343,15 @@ document.addEventListener("DOMContentLoaded", () => {
   initLoadingBar();
   initSalesPopup();
 
-  // Krijo admin default
   if (typeof createDefaultAdmin === "function") {
     createDefaultAdmin();
   }
 
-  // Update header për user
   if (typeof updateHeaderForUser === "function") {
     updateHeaderForUser();
   }
 });
 
-// Mbyll modalat me ESC
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     closeFreeModal();

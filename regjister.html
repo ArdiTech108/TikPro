@@ -22,7 +22,6 @@
       });
     </script>
     <style>
-      /* Përdor të njëjtin CSS si login.html */
       :root {
         --primary-color: #4a90e2;
         --secondary-color: #50e3c2;
@@ -261,7 +260,6 @@
     </style>
   </head>
   <body>
-    <!-- Register Container -->
     <div class="register-container">
       <div class="register-header">
         <h2>
@@ -374,7 +372,6 @@
       </form>
     </div>
 
-    <!-- Loading -->
     <div class="loading" id="loading">
       <div class="spinner"></div>
     </div>
@@ -382,7 +379,6 @@
     <script src="database.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Toggle password visibility
         const togglePassword = document.getElementById("togglePassword");
         const toggleConfirmPassword = document.getElementById(
           "toggleConfirmPassword",
@@ -416,7 +412,6 @@
           }
         });
 
-        // Handle registration
         document
           .getElementById("registerForm")
           .addEventListener("submit", function (e) {
@@ -429,7 +424,6 @@
             const confirmPassword =
               document.getElementById("confirmPassword").value;
 
-            // Validation
             if (
               !fullName ||
               !email ||
@@ -454,7 +448,6 @@
               return;
             }
 
-            // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
               showNotification(
@@ -464,12 +457,9 @@
               return;
             }
 
-            // Show loading
             document.getElementById("loading").classList.add("active");
 
-            // Simulate API call
             setTimeout(() => {
-              // Check if user exists
               const existingUser =
                 db.findUserByUsernameOrEmail(username) ||
                 db.findUserByUsernameOrEmail(email);
@@ -480,7 +470,6 @@
                 return;
               }
 
-              // Create new user
               const newUser = db.createUser({
                 name: fullName,
                 username: username,
@@ -488,7 +477,6 @@
                 password: password,
               });
 
-              // Auto login
               localStorage.setItem(
                 "tikproCurrentUser",
                 JSON.stringify(newUser),
@@ -496,14 +484,12 @@
 
               showNotification("Llogaria u krijua me sukses!", "success");
 
-              // Redirect to home page
               setTimeout(() => {
                 window.location.href = "index.html";
               }, 1500);
             }, 1000);
           });
 
-        // Check if user is already logged in
         const currentUser = JSON.parse(
           localStorage.getItem("tikproCurrentUser"),
         );
@@ -512,7 +498,6 @@
         }
       });
 
-      // Notification function
       function showNotification(message, type = "info") {
         const notification = document.createElement("div");
         notification.className = `notification ${type}`;

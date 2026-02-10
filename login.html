@@ -22,7 +22,6 @@
       });
     </script>
     <style>
-      /* CSS i plotë nga versioni origjinal */
       :root {
         --primary-color: #4a90e2;
         --secondary-color: #50e3c2;
@@ -278,7 +277,6 @@
     </style>
   </head>
   <body>
-    <!-- Login Container -->
     <div class="login-container">
       <div class="login-header">
         <h2>
@@ -345,16 +343,13 @@
       </form>
     </div>
 
-    <!-- Loading -->
     <div class="loading" id="loading">
       <div class="spinner"></div>
     </div>
 
     <script src="database.js"></script>
     <script>
-      // Login System
       document.addEventListener("DOMContentLoaded", function () {
-        // Toggle password visibility
         const toggleBtn = document.getElementById("togglePassword");
         const passwordInput = document.getElementById("password");
 
@@ -371,7 +366,6 @@
           }
         });
 
-        // Handle form submission
         document
           .getElementById("loginForm")
           .addEventListener("submit", function (e) {
@@ -381,22 +375,17 @@
             const password = document.getElementById("password").value;
             const rememberMe = document.getElementById("rememberMe").checked;
 
-            // Validimi
             if (!username || !password) {
               showNotification("Ju lutem plotësoni të gjitha fushat!", "error");
               return;
             }
 
-            // Show loading
             document.getElementById("loading").classList.add("active");
 
-            // Simulate API call delay
             setTimeout(() => {
-              // Use database.js for login
               const user = db.login(username, password);
 
               if (user) {
-                // Save user session
                 localStorage.setItem("tikproCurrentUser", JSON.stringify(user));
                 if (rememberMe) {
                   localStorage.setItem("tikproRemember", "true");
@@ -404,7 +393,6 @@
 
                 showNotification("Mirë se vini " + user.name + "!", "success");
 
-                // Redirect based on role
                 setTimeout(() => {
                   if (user.role === "admin") {
                     window.location.href = "admin.html";
@@ -419,7 +407,6 @@
             }, 1000);
           });
 
-        // Check if user is already logged in
         const currentUser = JSON.parse(
           localStorage.getItem("tikproCurrentUser"),
         );
@@ -429,7 +416,6 @@
         }
       });
 
-      // Notification function
       function showNotification(message, type = "info") {
         const notification = document.createElement("div");
         notification.className = `notification ${type}`;

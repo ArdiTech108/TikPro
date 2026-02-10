@@ -30,7 +30,6 @@
       });
     </script>
     <style>
-      /* Stilizime specifike për packages.html */
       .platform-tabs,
       .service-tabs {
         display: flex;
@@ -91,7 +90,6 @@
         line-height: 1.8;
       }
 
-      /* Butoni Bli Tani i njëjtë si në index.html */
       .btn-package {
         display: inline-flex;
         align-items: center;
@@ -152,7 +150,6 @@
         box-shadow: var(--shadow-lg);
       }
 
-      /* Dark mode specific styles */
       .dark .btn-special {
         background: #dc2626;
         color: white;
@@ -251,9 +248,8 @@
   <a href="contact.html" class="nav-link">Kontakt</a>
   <a href="privacy.html" class="nav-link">Privatësia</a>
   
-  <!-- User Menu (do të shfaqet vetëm nëse user është logged in) -->
+
   <div class="user-menu" id="userMenu" style="display: none;">
-    <!-- Do të mbushët me JavaScript -->
   </div>
   
   <a href="login.html" class="nav-link admin-link" title="Admin Login" id="adminLink">
@@ -309,14 +305,12 @@
           </button>
         </div>
       </div>
-     <!-- Në header të index.html, ndrysho mobile nav: -->
 <nav class="nav-mobile" id="mobileNav">
   <a href="index.html" class="nav-link active">Kryefaqja</a>
   <a href="packages.html" class="nav-link">Paketa</a>
   <a href="contact.html" class="nav-link">Kontakt</a>
   <a href="privacy.html" class="nav-link">Privatësia</a>
   
-  <!-- Kjo do të mbushët me JavaScript nëse useri është logged in -->
   <div id="mobileLogoutContainer"></div>
   
   <a href="login.html" class="nav-link admin-link" id="mobileAdminLink">
@@ -349,7 +343,6 @@
     </div>
 
     <div class="container" style="padding: 2rem 0">
-      <!-- Platform Tabs -->
       <div class="platform-tabs">
         <button class="platform-tab active" data-platform="tiktok">
           🎵 TikTok
@@ -362,7 +355,6 @@
         </button>
       </div>
 
-      <!-- Service Type Tabs -->
       <div class="service-tabs">
         <button class="service-tab active" data-service="followers">
           👥 Followers
@@ -371,11 +363,9 @@
         <button class="service-tab" data-service="likes">❤️ Likes</button>
       </div>
 
-      <!-- Packages Container -->
       <div id="packagesContainer" class="packages-grid"></div>
     </div>
 
-    <!-- Modal për blerje (E NJËJTA si në index.html) -->
     <div class="modal" id="freeModal">
       <div class="modal-overlay" onclick="closeFreeModal()"></div>
       <div class="modal-content">
@@ -677,7 +667,6 @@
         }
       }
 
-      /* Packages grid styling */
       .packages-grid {
         display: grid;
         gap: 1.5rem;
@@ -723,7 +712,7 @@
         color: var(--foreground);
       }
 
-      /* Platform specific border colors */
+   
       .package-card.tiktok {
         border-color: rgba(238, 29, 82, 0.2);
       }
@@ -748,7 +737,7 @@
         border-color: rgba(24, 119, 242, 0.3);
       }
 
-      /* Badge for popular packages */
+  
       .package-badge {
         position: absolute;
         top: -0.75rem;
@@ -762,7 +751,7 @@
         border-radius: 9999px;
         white-space: nowrap;
       }
-      /* Në packages.html, shto këto stilizime në <style> */
+     
       .special-package {
         border: 3px solid #ffd700 !important;
         background: linear-gradient(
@@ -811,7 +800,7 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
 
-      /* Stilizime për grid me 12 paketa */
+    
       .packages-grid {
         display: grid;
         gap: 1.5rem;
@@ -819,35 +808,35 @@
         margin-top: 2rem;
       }
 
-      /* Për mobile, 1 kolonë */
+      
       @media (max-width: 640px) {
         .packages-grid {
           grid-template-columns: 1fr;
         }
       }
 
-      /* Për tablet, 2 kolona */
+   
       @media (min-width: 641px) and (max-width: 1024px) {
         .packages-grid {
           grid-template-columns: repeat(2, 1fr);
         }
       }
 
-      /* Për desktop, 3 kolona */
+     
       @media (min-width: 1025px) {
         .packages-grid {
           grid-template-columns: repeat(3, 1fr);
         }
       }
 
-      /* Për ekrane shumë të mëdha, 4 kolona */
+      
       @media (min-width: 1400px) {
         .packages-grid {
           grid-template-columns: repeat(4, 1fr);
         }
       }
 
-      /* Responsive menu styles */
+      
       .nav-mobile {
         display: none;
         position: absolute;
@@ -912,7 +901,6 @@
         transform: rotate(-45deg) translate(7px, -6px);
       }
 
-      /* Show mobile menu on small screens */
       @media (max-width: 768px) {
         .nav-desktop {
           display: none;
@@ -931,7 +919,6 @@
     </style>
 
     <script>
-      // Dark mode theme toggle
       function initTheme() {
         const themeToggle = document.getElementById("themeToggle");
         
@@ -952,7 +939,6 @@
         });
       }
 
-      // Mobile menu toggle
       function initMobileMenu() {
         const menuToggle = document.getElementById("menuToggle");
         const mobileNav = document.getElementById("mobileNav");
@@ -960,11 +946,10 @@
         if (!menuToggle || !mobileNav) return;
         
         menuToggle.addEventListener("click", (e) => {
-          e.stopPropagation(); // Parandalon përhapjen e eventit
+          e.stopPropagation(); 
           menuToggle.classList.toggle("active");
           mobileNav.classList.toggle("active");
 
-          // Parandalon scrolling kur menuja është hapur
           if (mobileNav.classList.contains("active")) {
             document.body.style.overflow = "hidden";
           } else {
@@ -972,7 +957,6 @@
           }
         });
 
-        // Mbyll menu kur klikon jashtë
         document.addEventListener("click", (e) => {
           if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
             menuToggle.classList.remove("active");
@@ -981,7 +965,6 @@
           }
         });
 
-        // Mbyll menu kur klikon një link
         const mobileLinks = mobileNav.querySelectorAll(".nav-link");
         mobileLinks.forEach((link) => {
           link.addEventListener("click", () => {
@@ -992,7 +975,6 @@
         });
       }
 
-      // Initialize everything when DOM is loaded
       document.addEventListener("DOMContentLoaded", () => {
         initTheme();
         initMobileMenu();
