@@ -397,23 +397,6 @@ function initPlatformTabs() {
 
 // Dark mode theme toggle
 
-  // Toggle dark mode
-  themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    const isDarkMode = document.body.classList.contains("dark");
-    localStorage.setItem("darkMode", isDarkMode);
-
-    // Switch icons
-    if (isDarkMode) {
-      iconMoon.style.display = "none";
-      iconSun.style.display = "block";
-    } else {
-      iconMoon.style.display = "block";
-      iconSun.style.display = "none";
-    }
-  });
-}
-
 // Mobile menu toggle
 function initMobileMenu() {
   const menuToggle = document.getElementById("menuToggle");
