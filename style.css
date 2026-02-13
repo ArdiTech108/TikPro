@@ -2238,7 +2238,6 @@ html:not(.dark) body.body2::before,
 html:not(.dark) body.body2::after {
   display: none !important;
 }
-/* Në style.css, shto/ndrysho këtë: */
 .user-menu {
   position: relative;
   display: inline-flex;
@@ -2274,7 +2273,6 @@ html:not(.dark) body.body2::after {
   margin-top: 10px;
 }
 
-/* Më mirë të përdorim JavaScript për toggle, jo CSS hover */
 .user-dropdown.active {
   display: block !important;
 }
@@ -2319,9 +2317,7 @@ html:not(.dark) body.body2::after {
   border-top: 1px solid var(--card-border);
 }
 
-
 /*e kom shtu keteeeee*/
-
 
 .header {
   position: sticky;
@@ -2329,16 +2325,14 @@ html:not(.dark) body.body2::after {
   z-index: 9999;
 }
 
-
 .nav-mobile {
-
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 14px;
 
   position: fixed;
-  top: 4rem;              
+  top: 4rem;
   left: 0;
   right: 0;
 
@@ -2351,7 +2345,6 @@ html:not(.dark) body.body2::after {
 
   z-index: 9999;
 
-
   opacity: 0;
   transform: translateY(-12px);
   pointer-events: none;
@@ -2362,25 +2355,24 @@ html:not(.dark) body.body2::after {
   background: rgba(15, 15, 15, 0.98);
 }
 
-
 .nav-mobile.active {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-
-body { overflow-x: hidden; }
-
-
-
-
-
-@supports not (backdrop-filter: blur(10px)) {
-  .header { backdrop-filter: none; }
+body {
+  overflow-x: hidden;
 }
 
+@supports not (backdrop-filter: blur(10px)) {
+  .header {
+    backdrop-filter: none;
+  }
+}
 
 @media (max-width: 768px) {
-  .header { backdrop-filter: none; }
+  .header {
+    backdrop-filter: none;
+  }
 }

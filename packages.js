@@ -11,37 +11,36 @@ const allPackages = {
       { amount: 25000, price: 299.99 },
       { amount: 50000, price: 549.99 },
       { amount: 100000, price: 999.99 },
-      { amount: 250000, price: 2299.99, special: true }, // Speciale 1
-      { amount: 500000, price: 3999.99, special: true }, // Speciale 2
+      { amount: 250000, price: 2299.99 },
+      { amount: 500000, price: 3999.99 },
     ],
     views: [
-      
-      {  amount: 500, price: 0.99, popular: false },
-  {  amount: 1000, price: 1.49, popular: false },
-  {  amount: 2500, price: 2.99, popular: false },
-  {  amount: 5000, price: 4.99, popular: true },
-  {  amount: 10000, price: 8.99, popular: false },
-  { amount: 25000, price: 17.99, popular: false },
-  {  amount: 50000, price: 29.99, popular: false },
-  {  amount: 100000, price: 49.99, popular: false },
-  {  amount: 250000, price: 99.99, popular: false },
-  {  amount: 500000, price: 169.99, popular: false },
-      { amount: 5000000, price: 699.99, special: true }, // Speciale 1
-      { amount: 10000000, price: 999.99, special: true }, // Speciale 2
+      { amount: 500, price: 0.99 },
+      { amount: 1000, price: 1.49 },
+      { amount: 2500, price: 2.99 },
+      { amount: 5000, price: 4.99 },
+      { amount: 10000, price: 8.99 },
+      { amount: 25000, price: 17.99 },
+      { amount: 50000, price: 29.99 },
+      { amount: 100000, price: 49.99 },
+      { amount: 250000, price: 99.99 },
+      { amount: 500000, price: 169.99 },
+      { amount: 5000000, price: 699.99 },
+      { amount: 10000000, price: 999.99 },
     ],
     likes: [
-      { amount: 100, price: 0.99, popular: false },
-      { amount: 250, price: 1.99, popular: false },
-      { amount: 500, price: 2.99, popular: false },
-      { amount: 1000, price: 4.99, popular: true },
-      { amount: 2500, price: 9.99, popular: false },
-      { amount: 5000, price: 17.99, popular: false },
-      { amount: 10000, price: 29.99, popular: false },
-      { amount: 25000, price: 59.99, popular: false },
-      { amount: 50000, price: 99.99, popular: false },
-      { amount: 100000, price: 179.99, popular: false },
-      { amount: 250000, price: 344.99, special: true }, // Speciale 1
-      { amount: 500000, price: 599.99, special: true }, // Speciale 2
+      { amount: 100, price: 0.99 },
+      { amount: 250, price: 1.99 },
+      { amount: 500, price: 2.99 },
+      { amount: 1000, price: 4.99 },
+      { amount: 2500, price: 9.99 },
+      { amount: 5000, price: 17.99 },
+      { amount: 10000, price: 29.99 },
+      { amount: 25000, price: 59.99 },
+      { amount: 50000, price: 99.99 },
+      { amount: 100000, price: 179.99 },
+      { amount: 250000, price: 344.99 },
+      { amount: 500000, price: 599.99 },
     ],
   },
   instagram: {
@@ -56,8 +55,8 @@ const allPackages = {
       { amount: 25000, price: 279.99 },
       { amount: 50000, price: 499.99 },
       { amount: 100000, price: 899.99 },
-      { amount: 250000, price: 1999.99, special: true }, // Speciale 1
-      { amount: 500000, price: 3499.99, special: true }, // Speciale 2
+      { amount: 250000, price: 1999.99 },
+      { amount: 500000, price: 3499.99 },
     ],
     views: [
       { amount: 1000, price: 0.79 },
@@ -70,8 +69,8 @@ const allPackages = {
       { amount: 250000, price: 89.99 },
       { amount: 500000, price: 169.99 },
       { amount: 1000000, price: 319.99 },
-      { amount: 5000000, price: 1499.99, special: true }, // Speciale 1
-      { amount: 10000000, price: 2499.99, special: true }, // Speciale 2
+      { amount: 5000000, price: 1499.99 },
+      { amount: 10000000, price: 2499.99 },
     ],
     likes: [
       { amount: 100, price: 0.79 },
@@ -84,8 +83,8 @@ const allPackages = {
       { amount: 25000, price: 89.99 },
       { amount: 50000, price: 169.99 },
       { amount: 100000, price: 319.99 },
-      { amount: 250000, price: 749.99, special: true }, // Speciale 1
-      { amount: 500000, price: 1299.99, special: true }, // Speciale 2
+      { amount: 250000, price: 749.99 },
+      { amount: 500000, price: 1299.99 },
     ],
   },
   facebook: {
@@ -100,8 +99,8 @@ const allPackages = {
       { amount: 25000, price: 449.99 },
       { amount: 50000, price: 799.99 },
       { amount: 100000, price: 1499.99 },
-      { amount: 250000, price: 3499.99, special: true }, // Speciale 1
-      { amount: 500000, price: 6499.99, special: true }, // Speciale 2
+      { amount: 250000, price: 3499.99 },
+      { amount: 500000, price: 6499.99 },
     ],
     views: [
       { amount: 1000, price: 1.49 },
@@ -114,8 +113,8 @@ const allPackages = {
       { amount: 250000, price: 189.99 },
       { amount: 500000, price: 349.99 },
       { amount: 1000000, price: 649.99 },
-      { amount: 5000000, price: 2999.99, special: true }, // Speciale 1
-      { amount: 10000000, price: 5499.99, special: true }, // Speciale 2
+      { amount: 5000000, price: 2999.99 },
+      { amount: 10000000, price: 5499.99 },
     ],
     likes: [
       { amount: 100, price: 1.49 },
@@ -128,8 +127,8 @@ const allPackages = {
       { amount: 25000, price: 189.99 },
       { amount: 50000, price: 349.99 },
       { amount: 100000, price: 649.99 },
-      { amount: 250000, price: 1499.99, special: true }, // Speciale 1
-      { amount: 500000, price: 2799.99, special: true }, // Speciale 2
+      { amount: 250000, price: 1499.99 },
+      { amount: 500000, price: 2799.99 },
     ],
   },
 };
@@ -169,20 +168,11 @@ function renderPackages() {
 
   container.innerHTML = packages
     .map((pkg, index) => {
-      const isSpecial = pkg.special || index >= 10;
-      const specialClass = isSpecial ? "special-package" : "";
-      const badge = isSpecial
-        ? '<span class="package-badge">🔥 Special</span>'
-        : "";
-
-      let buttonClass = "btn-primary";
-      if (isSpecial) {
-        buttonClass = "btn-special";
-      }
+      const buttonClass = "btn-primary";
 
       return `
-            <div class="package-card ${currentPlatform} ${specialClass}" data-testid="package-${currentPlatform}-${currentService}-${index}">
-                ${badge}
+            <div class="package-card ${currentPlatform}" data-testid="package-${currentPlatform}-${currentService}-${index}">
+                <!-- Hiq badge-in -->
                 <div class="package-amount">${formatNumber(pkg.amount)}</div>
                 <div class="package-type">${getServiceName(currentService)}</div>
                 <div class="package-price">€${pkg.price.toFixed(2)}</div>

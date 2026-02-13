@@ -8,7 +8,6 @@
       name="description"
       content="TikPro - Platforma më e besueshme për të blerë likes dhe views për TikTok. Paketa falas dhe me çmime të lira."
     />
-    <meta name="google-site-verification" content="IoK3YW0Wu5_K9fK_SbP9jCED-PXp4lhIa-mxZN7ThwM" />
     <!-- Shto këtë në head: -->
 <script src="database.js"></script>
 
@@ -28,7 +27,7 @@
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
 <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-<script>
+<script class="weglot-container">
     Weglot.initialize({
         api_key: 'wg_407ceb0a754d47002779caeb2a39b20a6'
     });
@@ -563,6 +562,7 @@
                   >Privatësia</a
                 >
               </li>
+              <li><a href="packages.html">Paketa</a></li>
             </ul>
           </div>
           <div class="footer-contact">
@@ -881,7 +881,7 @@
    
     #salesPopup {
         position: fixed;
-        top: 100px; 
+    top: 100px;
         right: 20px; 
         background: white;
         color: #333;
@@ -1008,12 +1008,13 @@
         }, 300);
     });
 </script>
+
 <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="vOCAaS9biLWAFVt9kwfmg";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 
 
-
+<script src="fix-packages-link.js"></script>
 <script src="logout-fix.js"></script>
     <script src="script.js"></script>
     <script src="auth.js"></script>

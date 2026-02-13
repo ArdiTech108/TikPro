@@ -103,36 +103,65 @@ function initMobileMenu() {
   const menuToggle = document.getElementById("menuToggle");
   const mobileNav = document.getElementById("mobileNav");
 
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      menuToggle.classList.toggle("active");
-      mobileNav.classList.toggle("active");
+  if (!menuToggle || !mobileNav) return;
 
-      if (mobileNav.classList.contains("active")) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "";
-      }
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
-        menuToggle.classList.remove("active");
-        mobileNav.classList.remove("active");
-        document.body.style.overflow = "";
-      }
-    });
-
-    const mobileLinks = mobileNav.querySelectorAll(".nav-link");
-    mobileLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        menuToggle.classList.remove("active");
-        mobileNav.classList.remove("active");
-        document.body.style.overflow = "";
-      });
-    });
+  function closeMenu() {
+    menuToggle.classList.remove("active");
+    mobileNav.classList.remove("active");
+    document.body.style.overflow = "";
   }
+
+  menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isActive = mobileNav.classList.contains("active");
+
+    if (isActive) {
+      closeMenu();
+    } else {
+      menuToggle.classList.add("active");
+      mobileNav.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  const mobileLinks = mobileNav.querySelectorAll(".nav-link");
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      closeMenu();
+    }
+  });
+}
+function openFreeModal(type, amount) {
+  const modal = document.getElementById("freeModal");
+  const modalIcon = document.getElementById("freeModalIcon");
+  const modalTitle = document.getElementById("freeModalTitle");
+  const modalSubtitle = document.getElementById("freeModalSubtitle");
+
+  document.getElementById("freePackageType").value = type;
+  document.getElementById("freePackageAmount").value = amount;
+
+  const iconSvg =
+    type === "likes"
+      ? '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+
+  modalIcon.innerHTML = iconSvg;
+  modalIcon.className = `modal-icon ${type}`;
+  modalTitle.textContent = `Merr ${amount} ${type} Falas`;
+  modalSubtitle.textContent = "Plotëso të dhënat për të marrë paketën falas.";
+
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
 }
 
 function closeFreeModal() {
@@ -358,4 +387,22 @@ document.addEventListener("keydown", (e) => {
     closePaidModal();
     closeSuccessModal();
   }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    link.classList.remove("active");
+
+    if (
+      currentPage === href ||
+      (currentPage === "" && href === "index.html") ||
+      (currentPage === "index.html" && href === "index.html")
+    ) {
+      link.classList.add("active");
+    }
+  });
 });
